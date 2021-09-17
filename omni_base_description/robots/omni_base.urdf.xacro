@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2021, PAL Robotics, S.L.
+  All rights reserved.
+
+  This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/ or send a letter to
+  Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+-->
+<robot  xmlns:xacro="http://ros.org/wiki/xacro" name="omni_base" >
+
+  <xacro:arg name="laser_model" default="sick-571"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
+  <xacro:arg name="multiple" default="false"/>
+  <xacro:arg name="namespace" default=""/>
+  <xacro:property name="laser_model" value="$(arg laser_model)" />
+  <xacro:property name="is_multiple" value="$(arg multiple)" />
+  <xacro:property name="nsp" value="$(arg namespace)" />
+
+  <xacro:if value="${laser_model not in ['false', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
+    <xacro:wrong_laser_model/>
+  </xacro:if>
+
+  <!-- The following included files set up definitions of parts of the robot body -->
+  <!-- Base -->
+  <xacro:include filename="$(find omni_base_description)/urdf/base/base_sensors.urdf.xacro" />
+
+  <!-- Generic simulator_gazebo plugins -->
+  <xacro:include filename="$(find omni_base_description)/gazebo/gazebo.urdf.xacro" />
+  <!-- Materials for visualization -->
+  <xacro:include filename="$(find omni_base_description)/urdf/materials.urdf.xacro" />
+
+  <!-- Now we can start using the macros included above to define the actual robot -->
+  <xacro:base_sensors name="base" laser_model="$(arg laser_model)"/>
+
+</robot>
+
+

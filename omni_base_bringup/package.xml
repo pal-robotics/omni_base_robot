@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>omni_base_bringup</name>
+  <version>0.0.1</version>
+  <description>The omni_base_bringup package</description>
+
+  <maintainer email="antonio.brandi@pal-robotics.com">Antonio Brandi</maintainer>
+
+  <license>Proprietary</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>tf_lookup</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>omni_base_controller_configuration</exec_depend>
+  <exec_depend>omni_base_description</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>joy_teleop</exec_depend>
+  <exec_depend>robot_pose</exec_depend>
+  <exec_depend>speed_limit_node</exec_depend>
+  <exec_depend>twist_mux</exec_depend>
+
+  <export>
+  </export>
+</package>

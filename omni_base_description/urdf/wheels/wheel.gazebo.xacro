@@ -1,0 +1,30 @@
+<!--
+ Copyright 2021 PAL Robotics SL.
+ All Rights Reserved
+ 
+ Unauthorized copying of this file, via any medium is strictly prohibited,
+ unless it was supplied under the terms of a license agreement or
+ nondisclosure agreement with PAL Robotics SL. In this case it may not be
+ copied or disclosed except in accordance with the terms of that agreement.
+ 
+ 
+-->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="wheel_gazebo" params="side">
+    <!-- Contact model for the wheel surface -->
+    <gazebo reference="wheel_${side}_link">
+      <kp>1000000.0</kp>
+      <kd>1000.0</kd>
+      <mu1>0.0</mu1>
+      <mu2>0.0</mu2>
+      <fdir1>1 0 0</fdir1>
+      <maxVel>1.0</maxVel>
+      <minDepth>0.00</minDepth>
+      <implicitSpringDamper>1</implicitSpringDamper>
+      <material>Gazebo/DarkGrey</material>
+    </gazebo>
+  </xacro:macro>
+
+</robot>

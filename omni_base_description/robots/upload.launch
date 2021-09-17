@@ -1,0 +1,12 @@
+<launch>
+  <arg name="multi" default=""/>
+  <arg name="laser_model"  default="sick-571"/>
+
+  <!-- Robot description -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro --inorder
+    '$(find omni_base_description)/robots/omni_base.urdf.xacro'
+    laser_model:=$(arg laser_model)
+    $(arg multi)" />
+ <rosparam command="load" file="$(find omni_base_description)/config/joint_limits.yaml" />
+</launch>

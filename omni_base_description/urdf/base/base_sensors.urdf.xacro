@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+
+  Copyright (c) 2021, PAL Robotics, S.L.
+  All rights reserved.
+
+  This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/ or send a letter to
+  Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find omni_base_description)/urdf/base/base.urdf.xacro"/>
+
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
+
+  <!-- laser_model can be: false, hokuyo, sick-551, sick-561, sick-571-->
+  <xacro:macro name="base_sensors" params=" name laser_model:=sick-571">
+
+    <!-- Base Laser Link -->
+    <joint name="${name}_laser_joint" type="fixed">
+        <parent link="${name}_link"/>
+        <child link="${name}_laser_link"/>
+        <origin xyz="0 0 0.15614" rpy="0 0 0" />
+    </joint>
+    <link name="${name}_laser_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.0001" />
+            <inertia ixx="0.0001"  ixy="0"  ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+        </inertial>
+    </link>
+
+    <!-- Rear Laser:  Theoretic FOV = 220 -->
+    <xacro:sick_tim561_laser name="${name}_rear_laser" parent="${name}" ros_topic="scan_rear" update_rate="10" min_angle="${-120 * deg_to_rad}" max_angle="${120 * deg_to_rad}"  >
+      <origin xyz="-0.277 0 0.15614" rpy="0 0 ${180 * deg_to_rad}" />
+    </xacro:sick_tim561_laser>
+
+    <xacro:sick_tim561_laser name="${name}_front_laser" parent="${name}" ros_topic="scan_front" update_rate="10" min_angle="${-120 * deg_to_rad}" max_angle="${120 * deg_to_rad}" >
+      <origin xyz="0.277 0 0.15614" rpy="0 0 0" />
+    </xacro:sick_tim561_laser>
+
+    <xacro:base name="${name}"/>
+
+  </xacro:macro>
+
+</robot>
