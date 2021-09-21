@@ -34,7 +34,7 @@
         <inertia ixx="0.347483846337784" ixy="0.00017011926290181" ixz="-0.00450619609287122" 
           iyy="0.462761159488672" iyz="0.00110342934873762" izz="0.454645990122976" />
       </inertial>
-      <visual>
+      <!-- <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_link.stl" />
@@ -48,7 +48,7 @@
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_link.dae" />
         </geometry>
-      </collision>
+      </collision> -->
     </link>
 
     <link name="${name}_footprint"/>

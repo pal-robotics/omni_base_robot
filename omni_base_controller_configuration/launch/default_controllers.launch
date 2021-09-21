@@ -5,7 +5,7 @@
   <rosparam command="load" file="$(find joint_state_controller)/joint_state_controller.yaml" />
   <rosparam command="load" file="$(find imu_sensor_controller)/imu_sensor_controller.yaml" />
 
-  <!-- Set up controllers depending of arm existance -->
+  <!-- Set up controllers -->
   <arg name="controller_list"
        value="imu_sensor_controller
               joint_state_controller
