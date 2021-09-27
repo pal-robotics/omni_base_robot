@@ -29,18 +29,18 @@
     <!-- Base footprint -->
     <link name="${name}_link">
       <inertial>
-        <origin xyz="-0.00714862613301571 -0.00611949538965259 0.17932103073575" rpy="0 0 0" />
-        <mass value="40.5916085964121" />
-        <inertia ixx="0.347483846337784" ixy="0.00017011926290181" ixz="-0.00450619609287122" 
-          iyy="0.462761159488672" iyz="0.00110342934873762" izz="0.454645990122976" />
+        <origin xyz="0.0026742 0.00027459 0.086363" rpy="0 0 0" />
+        <mass value="34.047" />
+        <inertia ixx="0.22777" ixy="0.00035979" ixz="0.00015269"
+          iyy="0.29991" iyz="1.7872E-05" izz="0.46036" />
       </inertial>
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_link.stl" />
         </geometry>
         <material name="">
-          <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+          <color rgba="0.75294 0.75294 0.75294 1" />
         </material>
       </visual>
       <collision>
@@ -48,7 +48,7 @@
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_link.dae" />
         </geometry>
-      </collision> -->
+      </collision>
     </link>
 
     <link name="${name}_footprint"/>
@@ -59,7 +59,7 @@
       <parent link="${name}_footprint"/>
     </joint>
 
-  <!-- gazebo parameters are given here for base_link thru base_footprint -->
+  <!-- gazebo parameters are given here for base_link through base_footprint -->
     <gazebo reference="${name}_footprint">
       <kp>100000000.0</kp>
       <kd>10.0</kd>
@@ -73,7 +73,7 @@
 
     <!-- IMU -->
     <xacro:imu_sensor name="${name}_imu" parent="${name}_link" update_rate="100.0">
-      <origin xyz="-0.229392176792506 0 0.0788684081014052" rpy="${-70 * deg_to_rad} 0 ${90 * deg_to_rad}"/>
+      <origin xyz="-0.287 0 0.092163" rpy="0 0 ${90.0 * deg_to_rad}" />
     </xacro:imu_sensor>
 
     <xacro:wheel side="front_right" reflect=" 1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${wheel_pair_separation}"  separation="${wheel_separation}" parent="${name}"/>
