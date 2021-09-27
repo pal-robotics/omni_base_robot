@@ -24,6 +24,7 @@
   <xacro:property name="wheel_pair_separation" value="0.488"/>
   <xacro:property name="wheel_torque"     value="6.0"/>
   <xacro:property name="wheel_velocity"   value="1.0"/>
+  <xacro:property name="suspension_sagital_separation" value="0.345"/>
 
   <xacro:macro name="base" params="name">
 
@@ -116,10 +117,10 @@
       <origin xyz="-0.2015 0.13 0.2165" rpy="0 0 0" />
     </xacro:antenna>
 
-    <xacro:wheel side="front_right" reflect=" 1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${wheel_pair_separation}"  separation="${wheel_separation}" parent="${name}"/>
-    <xacro:wheel side="front_left"  reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${wheel_pair_separation}"  separation="${wheel_separation}" parent="${name}"/>
-    <xacro:wheel side="back_right"  reflect=" 1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${-wheel_pair_separation}" separation="${wheel_separation}" parent="${name}"/>
-    <xacro:wheel side="back_left"   reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${-wheel_pair_separation}" separation="${wheel_separation}" parent="${name}"/>
+    <xacro:wheel side="front_right" sagital_reflect="1.0" frontal_reflect="1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" frontal_separation="${wheel_pair_separation}"  sagital_separation="${suspension_sagital_separation}" parent="${name}_link"/>
+    <xacro:wheel side="front_left"  sagital_reflect="-1.0" frontal_reflect="1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" frontal_separation="${wheel_pair_separation}"  sagital_separation="${suspension_sagital_separation}" parent="${name}_link"/>
+    <xacro:wheel side="rear_right"  sagital_reflect="1.0" frontal_reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" frontal_separation="${wheel_pair_separation}" sagital_separation="${suspension_sagital_separation}" parent="${name}_link"/>
+    <xacro:wheel side="rear_left"   sagital_reflect="-1.0" frontal_reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" frontal_separation="${wheel_pair_separation}" sagital_separation="${suspension_sagital_separation}" parent="${name}_link"/>
 
   </xacro:macro>
 
