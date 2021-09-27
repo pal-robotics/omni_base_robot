@@ -12,10 +12,47 @@
 
   <xacro:include filename="$(find omni_base_description)/urdf/base/base.urdf.xacro"/>
 
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/hokuyo_urg_04lx_ug01_laser.urdf.xacro"/>
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim551_laser.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
+  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim571_laser.urdf.xacro"/>
 
-  <!-- laser_model can be: false, hokuyo, sick-551, sick-561, sick-571-->
-  <xacro:macro name="base_sensors" params=" name laser_model:=sick-571">
+  <!-- Laser model can be: false, hokuyo, sick-551, sick-561, sick-571-->
+  <!-- Laser:  Theoretic FOV = 220 -->
+  <xacro:macro name="laser_sensor" params="name parent model ros_topic *origin update_rate:=10 min_angle:=${-110 * deg_to_rad} max_angle:=${110 * deg_to_rad}">
+
+    <xacro:if value="${model == 'sick-551'}">
+      <!-- Rear Laser:  Theoretic FOV = 220 -->
+      <xacro:sick_tim551_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+        <xacro:insert_block name="origin" />
+      </xacro:sick_tim551_laser>
+    </xacro:if>
+
+    <xacro:if value="${model == 'sick-561'}">
+      <!-- Rear Laser:  Theoretic FOV = 220 -->
+      <xacro:sick_tim561_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+        <xacro:insert_block name="origin" />
+      </xacro:sick_tim561_laser>
+    </xacro:if>
+
+    <xacro:if value="${model == 'sick-571'}">
+      <!-- Rear Laser:  Theoretic FOV = 220 -->
+      <xacro:sick_tim571_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+        <xacro:insert_block name="origin" />
+      </xacro:sick_tim571_laser>
+    </xacro:if>
+
+    <xacro:if value="${model == 'hokuyo'}">
+      <!-- Rear Laser:  Theoretic FOV = 220 -->
+      <xacro:hokuyo_urg_041x_ug01_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+        <xacro:insert_block name="origin" />
+      </xacro:hokuyo_urg_041x_ug01_laser>
+    </xacro:if>
+  </xacro:macro>
+
+  <!-- front_right_laser_model can be: false, hokuyo, sick-551, sick-561, sick-571-->
+  <!-- rear_left_laser_model can be: false, hokuyo, sick-551, sick-561, sick-571-->
+  <xacro:macro name="base_sensors" params=" name front_right_laser_model:=sick-571 rear_left_laser_model:=sick-571">
 
     <!-- Base Laser Link -->
     <joint name="${name}_laser_joint" type="fixed">
@@ -31,14 +68,15 @@
         </inertial>
     </link>
 
-    <!-- Rear Laser:  Theoretic FOV = 220 -->
-    <xacro:sick_tim561_laser name="${name}_rear_laser" parent="${name}" ros_topic="scan_rear_raw" update_rate="10" min_angle="${-120 * deg_to_rad}" max_angle="${120 * deg_to_rad}"  >
-      <origin xyz="-0.277 0 0.15614" rpy="0 0 ${180 * deg_to_rad}" />
-    </xacro:sick_tim561_laser>
+    <!-- Rear Laser Sensor -->
+    <xacro:laser_sensor name="${name}_rear_laser" parent="${name}" model="${rear_left_laser_model}" ros_topic="scan_rear_raw">
+      <origin xyz="-0.27512 0.18297 0.13244" rpy="${-180 * deg_to_rad} 0 ${135 * deg_to_rad}" />
+    </xacro:laser_sensor> 
 
-    <xacro:sick_tim561_laser name="${name}_front_laser" parent="${name}" ros_topic="scan_front_raw" update_rate="10" min_angle="${-120 * deg_to_rad}" max_angle="${120 * deg_to_rad}" >
-      <origin xyz="0.277 0 0.15614" rpy="0 0 0" />
-    </xacro:sick_tim561_laser>
+    <!-- Front Laser Sensor -->
+    <xacro:laser_sensor name="${name}_front_laser" parent="${name}" model="${front_right_laser_model}" ros_topic="scan_rear_raw">
+    <origin xyz="0.27512 -0.18297 0.13244" rpy="${-180 * deg_to_rad} 0 ${-45 * deg_to_rad}" />
+    </xacro:laser_sensor> 
 
     <xacro:base name="${name}"/>
 
