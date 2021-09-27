@@ -13,6 +13,7 @@
   <xacro:include filename="$(find omni_base_description)/urdf/deg_to_rad.xacro"/>
 
   <xacro:include filename="$(find omni_base_description)/urdf/wheels/wheel.urdf.xacro"/>
+  <xacro:include filename="$(find omni_base_description)/urdf/base/antenna.urdf.xacro"/>
 
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/imu.urdf.xacro"/>
 
@@ -75,6 +76,14 @@
     <xacro:imu_sensor name="${name}_imu" parent="${name}_link" update_rate="100.0">
       <origin xyz="-0.287 0 0.092163" rpy="0 0 ${90.0 * deg_to_rad}" />
     </xacro:imu_sensor>
+
+    <!-- Antennas -->
+    <xacro:antenna name="base_antena_right" parent="base_link" reflect="1">
+      <origin xyz="-0.2015 -0.13 0.2165" rpy="0 0 0" />
+    </xacro:antenna>
+    <xacro:antenna name="base_antena_left" parent="base_link" reflect="-1">
+      <origin xyz="-0.2015 0.13 0.2165" rpy="0 0 0" />
+    </xacro:antenna>
 
     <xacro:wheel side="front_right" reflect=" 1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${wheel_pair_separation}"  separation="${wheel_separation}" parent="${name}"/>
     <xacro:wheel side="front_left"  reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${wheel_pair_separation}"  separation="${wheel_separation}" parent="${name}"/>
