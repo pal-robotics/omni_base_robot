@@ -17,10 +17,10 @@
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/imu.urdf.xacro"/>
 
   <!-- Wheel characteristics -->
-  <xacro:property name="wheel_radius"     value="0.1016"/>
-  <xacro:property name="wheel_width"      value="0.078"/>
-  <xacro:property name="wheel_separation" value="0.526"/>
-  <xacro:property name="wheel_pair_separation" value="0.410"/>
+  <xacro:property name="wheel_radius"     value="0.0762"/>
+  <xacro:property name="wheel_width"      value="0.050"/>
+  <xacro:property name="wheel_separation" value="0.44715"/>
+  <xacro:property name="wheel_pair_separation" value="0.488"/>
   <xacro:property name="wheel_torque"     value="6.0"/>
   <xacro:property name="wheel_velocity"   value="1.0"/>
 
