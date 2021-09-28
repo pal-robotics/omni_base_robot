@@ -1,8 +1,11 @@
 <launch>
-  <arg name="laser_model"  default="sick-571"/>
+  <arg name="front_laser_model"  default="sick-571"/>
+  <arg name="rear_laser_model"  default="sick-571"/>
+  
   <!-- Args are the ones that upload.launch requires-->
   <include file="$(find omni_base_description)/robots/upload.launch">
-    <arg name="laser_model"  value="$(arg laser_model)"/>
+    <arg name="front_laser_model"  value="$(arg front_laser_model)"/>
+    <arg name="rear_laser_model"  value="$(arg rear_laser_model)"/>
   </include>
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />

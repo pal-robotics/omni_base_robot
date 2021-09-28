@@ -9,19 +9,19 @@
 -->
 <robot  xmlns:xacro="http://ros.org/wiki/xacro" name="omni_base" >
 
-  <xacro:arg name="front_right_laser_model" default="sick-571"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
-  <xacro:arg name="rear_left_laser_model" default="sick-571"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
+  <xacro:arg name="front_laser_model" default="sick-571"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
+  <xacro:arg name="rear_laser_model" default="sick-571"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
   <xacro:arg name="multiple" default="false"/>
   <xacro:arg name="namespace" default=""/>
-  <xacro:property name="front_right_laser_model" value="$(arg front_right_laser_model)" />
-  <xacro:property name="rear_left_laser_model" value="$(arg rear_left_laser_model)" />
+  <xacro:property name="front_laser_model" value="$(arg front_laser_model)" />
+  <xacro:property name="rear_laser_model" value="$(arg rear_laser_model)" />
   <xacro:property name="is_multiple" value="$(arg multiple)" />
   <xacro:property name="nsp" value="$(arg namespace)" />
 
-  <xacro:if value="${front_right_laser_model not in ['false', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
+  <xacro:if value="${front_laser_model not in ['false', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
     <xacro:wrong_laser_model/>
   </xacro:if>
-  <xacro:if value="${rear_left_laser_model not in ['false', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
+  <xacro:if value="${rear_laser_model not in ['false', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
     <xacro:wrong_laser_model/>
   </xacro:if>
 
@@ -35,7 +35,7 @@
   <xacro:include filename="$(find omni_base_description)/urdf/materials.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual robot -->
-  <xacro:base_sensors name="base" front_right_laser_model="$(arg front_right_laser_model)" rear_left_laser_model="$(arg rear_left_laser_model)"/>
+  <xacro:base_sensors name="base" front_laser_model="$(arg front_laser_model)" rear_laser_model="$(arg rear_laser_model)"/>
 
 </robot>
 
