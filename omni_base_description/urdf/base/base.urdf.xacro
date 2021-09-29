@@ -13,34 +13,36 @@
   <xacro:include filename="$(find omni_base_description)/urdf/deg_to_rad.xacro"/>
 
   <xacro:include filename="$(find omni_base_description)/urdf/wheels/wheel.urdf.xacro"/>
+  <xacro:include filename="$(find omni_base_description)/urdf/base/antenna.urdf.xacro"/>
 
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/imu.urdf.xacro"/>
 
   <!-- Wheel characteristics -->
-  <xacro:property name="wheel_radius"     value="0.1016"/>
-  <xacro:property name="wheel_width"      value="0.078"/>
-  <xacro:property name="wheel_separation" value="0.526"/>
-  <xacro:property name="wheel_pair_separation" value="0.410"/>
+  <xacro:property name="wheel_radius"     value="0.0762"/>
+  <xacro:property name="wheel_width"      value="0.050"/>
+  <xacro:property name="wheel_separation" value="0.44715"/>
+  <xacro:property name="wheel_pair_separation" value="0.488"/>
   <xacro:property name="wheel_torque"     value="6.0"/>
   <xacro:property name="wheel_velocity"   value="1.0"/>
+  <xacro:property name="suspension_sagital_separation" value="0.345"/>
 
   <xacro:macro name="base" params="name">
 
     <!-- Base footprint -->
     <link name="${name}_link">
       <inertial>
-        <origin xyz="-0.00714862613301571 -0.00611949538965259 0.17932103073575" rpy="0 0 0" />
-        <mass value="40.5916085964121" />
-        <inertia ixx="0.347483846337784" ixy="0.00017011926290181" ixz="-0.00450619609287122" 
-          iyy="0.462761159488672" iyz="0.00110342934873762" izz="0.454645990122976" />
+        <origin xyz="0.0026742 0.00027459 0.086363" rpy="0 0 0" />
+        <mass value="34.047" />
+        <inertia ixx="0.22777" ixy="0.00035979" ixz="0.00015269"
+          iyy="0.29991" iyz="1.7872E-05" izz="0.46036" />
       </inertial>
-      <!-- <visual>
+      <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_link.stl" />
         </geometry>
         <material name="">
-          <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+          <color rgba="0.75294 0.75294 0.75294 1" />
         </material>
       </visual>
       <collision>
@@ -48,7 +50,7 @@
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_link.dae" />
         </geometry>
-      </collision> -->
+      </collision>
     </link>
 
     <link name="${name}_footprint"/>
@@ -59,7 +61,7 @@
       <parent link="${name}_footprint"/>
     </joint>
 
-  <!-- gazebo parameters are given here for base_link thru base_footprint -->
+  <!-- gazebo parameters are given here for base_link through base_footprint -->
     <gazebo reference="${name}_footprint">
       <kp>100000000.0</kp>
       <kd>10.0</kd>
@@ -73,13 +75,52 @@
 
     <!-- IMU -->
     <xacro:imu_sensor name="${name}_imu" parent="${name}_link" update_rate="100.0">
-      <origin xyz="-0.229392176792506 0 0.0788684081014052" rpy="${-70 * deg_to_rad} 0 ${90 * deg_to_rad}"/>
+      <origin xyz="-0.287 0 0.092163" rpy="0 0 ${90.0 * deg_to_rad}" />
     </xacro:imu_sensor>
 
-    <xacro:wheel side="front_right" reflect=" 1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${wheel_pair_separation}"  separation="${wheel_separation}" parent="${name}"/>
-    <xacro:wheel side="front_left"  reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${wheel_pair_separation}"  separation="${wheel_separation}" parent="${name}"/>
-    <xacro:wheel side="back_right"  reflect=" 1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${-wheel_pair_separation}" separation="${wheel_separation}" parent="${name}"/>
-    <xacro:wheel side="back_left"   reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" pair_separation="${-wheel_pair_separation}" separation="${wheel_separation}" parent="${name}"/>
+    <!-- Docking link -->
+    <link name="${name}_dock_link">
+      <inertial>
+        <origin xyz="-0.0037082 1.5226E-18 -4.1633E-17" rpy="0 0 0" />
+        <mass value="0.032242" />
+        <inertia ixx="2.1302E-05" ixy="-1.0461E-21" ixz="6.6555E-22"
+          iyy="1.2058E-05" iyz="-1.9453E-21" izz="1.0058E-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://omni_base_description/meshes/base/base_dock_link.stl" />
+        </geometry>
+        <material name="">
+          <color rgba="0.25098 0.25098 0.25098 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://omni_base_description/meshes/base/base_dock_link.stl" />
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${name}_dock" type="fixed">
+      <origin xyz="0.3535 0 0.0596" rpy="0 0 0" />
+      <parent link="${name}_link" />
+      <child link="${name}_dock_link" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+    <!-- Antennas -->
+    <xacro:antenna name="base_antena_right" parent="base_link" reflect="1">
+      <origin xyz="-0.2015 -0.13 0.2165" rpy="0 0 0" />
+    </xacro:antenna>
+    <xacro:antenna name="base_antena_left" parent="base_link" reflect="-1">
+      <origin xyz="-0.2015 0.13 0.2165" rpy="0 0 0" />
+    </xacro:antenna>
+
+    <xacro:wheel side="front_right" sagital_reflect="1.0" frontal_reflect="1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" frontal_separation="${wheel_pair_separation}"  sagital_separation="${suspension_sagital_separation}" parent="${name}_link"/>
+    <xacro:wheel side="front_left"  sagital_reflect="-1.0" frontal_reflect="1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" frontal_separation="${wheel_pair_separation}"  sagital_separation="${suspension_sagital_separation}" parent="${name}_link"/>
+    <xacro:wheel side="rear_right"  sagital_reflect="1.0" frontal_reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" frontal_separation="${wheel_pair_separation}" sagital_separation="${suspension_sagital_separation}" parent="${name}_link"/>
+    <xacro:wheel side="rear_left"   sagital_reflect="-1.0" frontal_reflect="-1.0" radius="${wheel_radius}" width="${wheel_width}" torque="${wheel_torque}" velocity="${wheel_velocity}" frontal_separation="${wheel_pair_separation}" sagital_separation="${suspension_sagital_separation}" parent="${name}_link"/>
 
   </xacro:macro>
 
