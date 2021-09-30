@@ -2,6 +2,11 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* removed useless dependency to omni_base_description_calibration
+* Contributors: antoniobrandi
+
 0.0.1 (2021-09-30)
 ------------------
 * preparing release changed version
