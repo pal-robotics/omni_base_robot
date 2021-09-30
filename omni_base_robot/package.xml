@@ -1,12 +1,15 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>omni_base_robot</name>
-  <version>0.1.16</version>
+  <version>0.0.1</version>
   <description>The omni_base_robot package</description>
 
   <maintainer email="antonio.brandi@pal-robotics.com">Antonio Brandi</maintainer>
 
   <license>BSD</license>
+
+  <author email="sai.kishor@pal-robotics.com">Sai Kishor Kothakota</author>
+  <author email="antonio.brandi@pal-robotics.com">Antonio Brandi</author>
 
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>omni_base_description</exec_depend>

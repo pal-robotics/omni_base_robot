@@ -8,6 +8,9 @@
 
   <license>Proprietary</license>
 
+  <author email="sai.kishor@pal-robotics.com">Sai Kishor Kothakota</author>
+  <author email="antonio.brandi@pal-robotics.com">Antonio Brandi</author>
+
   <buildtool_depend>catkin</buildtool_depend>
 
   <exec_depend>controller_manager</exec_depend>

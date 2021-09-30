@@ -7,6 +7,7 @@
       a variety of other components.  Most users will not interact directly
       with this package.</description>
   <maintainer email="antonio.brandi@pal-robotics.com">Antonio Brandi</maintainer>
+  <author email="sai.kishor@pal-robotics.com">Sai Kishor Kothakota</author>
   <author email="antonio.brandi@pal-robotics.com">Antonio Brandi</author>
   <license>Creative Commons BY-NC-ND 3.0</license>
 
