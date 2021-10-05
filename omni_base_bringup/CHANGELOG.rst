@@ -2,6 +2,11 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fixed iso error while calling launch files for bringup
+* Contributors: antoniobrandi
+
 0.0.2 (2021-09-30)
 ------------------
 
