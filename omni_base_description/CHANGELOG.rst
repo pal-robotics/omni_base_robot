@@ -2,6 +2,11 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* typo
+* Contributors: antoniobrandi
+
 0.0.3 (2021-10-05)
 ------------------
 
