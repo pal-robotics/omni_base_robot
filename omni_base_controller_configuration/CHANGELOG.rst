@@ -2,6 +2,11 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add new controller parameters for the integration with the new omni_drive_controller
+* Contributors: antoniobrandi
+
 0.0.4 (2021-11-04)
 ------------------
 

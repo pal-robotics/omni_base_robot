@@ -2,6 +2,16 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Using the full mesh instead of the two boxes
+* added dependency for hector
+* removed dependency
+* Changed ros_planar_move for ros_force_based_move
+* Split the collision into 2 boxes for the sake of laser
+* Update the collision model of the base_link
+* Contributors: Sai Kishor Kothakota, antoniobrandi, saikishor
+
 0.0.4 (2021-11-04)
 ------------------
 * typo
