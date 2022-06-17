@@ -46,9 +46,9 @@
 
     <xacro:if value="${model == 'hokuyo'}">
       <!-- Rear Laser:  Theoretic FOV = 220 -->
-      <xacro:hokuyo_urg_041x_ug01_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+      <xacro:hokuyo_urg_04lx_ug01_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
         <xacro:insert_block name="origin" />
-      </xacro:hokuyo_urg_041x_ug01_laser>
+      </xacro:hokuyo_urg_04lx_ug01_laser>
     </xacro:if>
   </xacro:macro>
 
