@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.6 (2022-06-17)
+------------------
 * Merge branch 'hokuyo-support' into 'ferrum-devel'
   Fix typo in macro
   See merge request robots/omni_base_robot!2
