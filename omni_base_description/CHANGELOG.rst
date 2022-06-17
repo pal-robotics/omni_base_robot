@@ -2,6 +2,14 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'hokuyo-support' into 'ferrum-devel'
+  Fix typo in macro
+  See merge request robots/omni_base_robot!2
+* Fix typo in macro
+* Contributors: David ter Kuile, antoniobrandi
+
 0.0.5 (2021-11-24)
 ------------------
 * Using the full mesh instead of the two boxes
