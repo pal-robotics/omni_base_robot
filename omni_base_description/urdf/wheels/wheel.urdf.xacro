@@ -55,14 +55,12 @@ Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041
       <kinematic>0</kinematic>
       <gravity>1</gravity>
     </link>
-    <joint name="suspension_${side}_joint" type="prismatic">
+    <!-- Changed joint type to fixed joint. It is observed that the robot is loosing contact points due to some issues with the Gazebo Physics Engine. This makes the robot drift in localization when static due to added noise -->
+    <joint name="suspension_${side}_joint" type="fixed">
       <origin xyz="${frontal_reflect * frontal_separation / 2.0} ${sagital_reflect * -1.0 * suspension_sagital_separation / 2.0} 0" rpy="0 0 ${sagital_reflect * -90.0 * deg_to_rad}" />
       <parent link="${parent}" />
       <child link="suspension_${side}_link" />
       <axis xyz="0 0 1" />
-      <calibration rising="0.0" />
-      <dynamics damping="100"/>
-      <limit lower="-0.01" upper="0.01" effort="100" velocity="1.0" />
     </joint>
 
     <link name="wheel_${side}_link">
