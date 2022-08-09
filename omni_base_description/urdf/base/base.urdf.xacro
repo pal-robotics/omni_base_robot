@@ -58,9 +58,9 @@
         </geometry>
       </collision>
       <collision>
-        <origin xyz="0 0 0.04" rpy="0 0 0" />
+        <origin xyz="0 0 0.0335" rpy="0 0 0" />
         <geometry>
-          <box size="0.715 0.48 0.154"/>
+          <box size="0.705 0.48 0.167"/>
         </geometry>
       </collision>
     </link>
