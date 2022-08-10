@@ -46,9 +46,21 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.18925" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://omni_base_description/meshes/base/base_link.stl" />
+          <box size="0.717 0.497 0.0845"/>
+        </geometry>
+      </collision>
+      <collision>
+        <origin xyz="0 0 0.132" rpy="0 0 0" />
+        <geometry>
+          <box size="0.58 0.39 0.03"/>
+        </geometry>
+      </collision>
+      <collision>
+        <origin xyz="0 0 0.0335" rpy="0 0 0" />
+        <geometry>
+          <box size="0.705 0.48 0.167"/>
         </geometry>
       </collision>
     </link>
