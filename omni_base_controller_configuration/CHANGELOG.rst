@@ -2,8 +2,8 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.7 (2022-08-10)
+------------------
 * Merge branch 'fix_base_collision' into 'ferrum-devel'
   Fix collision boxes for the base
   See merge request robots/omni_base_robot!3
