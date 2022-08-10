@@ -2,6 +2,16 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix_base_collision' into 'ferrum-devel'
+  Fix collision boxes for the base
+  See merge request robots/omni_base_robot!3
+* Update box dimensions
+* Change suspension_side_joints to fixed joint because it was causing issue in the odometry
+* Fix collision boxes for the base
+* Contributors: saikishor, thomaspeyrucain
+
 0.0.6 (2022-06-17)
 ------------------
 * Merge branch 'hokuyo-support' into 'ferrum-devel'
