@@ -20,33 +20,32 @@
   <xacro:include filename="$(find omni_base_description)/urdf/deg_to_rad.xacro"/>
 
   <!-- Laser model can be: false, hokuyo, sick-551, sick-561, sick-571-->
-  <!-- Laser:  Theoretic FOV = 220 -->
-  <xacro:macro name="laser_sensor" params="name parent model ros_topic *origin min_angle max_angle update_rate:=10">
+  <xacro:macro name="laser_sensor" params="name parent model ros_topic *origin update_rate:=10">
 
     <xacro:if value="${model == 'sick-551'}">
-      <!-- Rear Laser:  Theoretic FOV = 220 -->
-      <xacro:sick_tim551_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+      <!-- Rear Laser:  Theoretic FOV = 270 -->
+      <xacro:sick_tim551_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${-135 * deg_to_rad}" max_angle="${135 * deg_to_rad}" >
         <xacro:insert_block name="origin" />
       </xacro:sick_tim551_laser>
     </xacro:if>
 
     <xacro:if value="${model == 'sick-561'}">
-      <!-- Rear Laser:  Theoretic FOV = 220 -->
-      <xacro:sick_tim561_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+      <!-- Rear Laser:  Theoretic FOV = 270 -->
+      <xacro:sick_tim561_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${-135 * deg_to_rad}" max_angle="${135 * deg_to_rad}" >
         <xacro:insert_block name="origin" />
       </xacro:sick_tim561_laser>
     </xacro:if>
 
     <xacro:if value="${model == 'sick-571'}">
-      <!-- Rear Laser:  Theoretic FOV = 220 -->
-      <xacro:sick_tim571_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+      <!-- Rear Laser:  Theoretic FOV = 270 -->
+      <xacro:sick_tim571_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${-135 * deg_to_rad}" max_angle="${135 * deg_to_rad}" >
         <xacro:insert_block name="origin" />
       </xacro:sick_tim571_laser>
     </xacro:if>
 
     <xacro:if value="${model == 'hokuyo'}">
-      <!-- Rear Laser:  Theoretic FOV = 220 -->
-      <xacro:hokuyo_urg_04lx_ug01_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" >
+      <!-- Rear Laser:  Theoretic FOV = 240 -->
+      <xacro:hokuyo_urg_04lx_ug01_laser name="${name}" parent="${parent}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${-120 * deg_to_rad}" max_angle="${120 * deg_to_rad}" >
         <xacro:insert_block name="origin" />
       </xacro:hokuyo_urg_04lx_ug01_laser>
     </xacro:if>
@@ -57,13 +56,13 @@
   <xacro:macro name="base_sensors" params=" name front_laser_model:=sick-571 rear_laser_model:=sick-571 laser_height:=0.13244">
 
     <!-- Rear Laser Sensor -->
-    <xacro:laser_sensor name="${name}_rear_laser" parent="${name}" model="${rear_laser_model}" ros_topic="scan_rear_raw" min_angle="${-110 * deg_to_rad}" max_angle="${110 * deg_to_rad}">
+    <xacro:laser_sensor name="${name}_rear_laser" parent="${name}" model="${rear_laser_model}" ros_topic="scan_rear_raw">
       <origin xyz="-0.27512 0.18297 ${laser_height}" rpy="${-180 * deg_to_rad} 0 ${135 * deg_to_rad}" />
     </xacro:laser_sensor> 
 
     <!-- Front Laser Sensor -->
-    <xacro:laser_sensor name="${name}_front_laser" parent="${name}" model="${front_laser_model}" ros_topic="scan_front_raw" min_angle="${-110 * deg_to_rad}" max_angle="${110 * deg_to_rad}">
-    <origin xyz="0.27512 -0.18297 ${laser_height}" rpy="${-180 * deg_to_rad} 0 ${-45 * deg_to_rad}" />
+    <xacro:laser_sensor name="${name}_front_laser" parent="${name}" model="${front_laser_model}" ros_topic="scan_front_raw">
+      <origin xyz="0.27512 -0.18297 ${laser_height}" rpy="${-180 * deg_to_rad} 0 ${-45 * deg_to_rad}" />
     </xacro:laser_sensor> 
 
     <!-- Virtual Base Laser Link -->
