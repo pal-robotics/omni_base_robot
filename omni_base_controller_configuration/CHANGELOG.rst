@@ -2,6 +2,9 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.8 (2022-08-16)
+------------------
+
 0.0.7 (2022-08-10)
 ------------------
 * Merge branch 'fix_base_collision' into 'ferrum-devel'

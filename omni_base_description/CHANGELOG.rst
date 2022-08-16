@@ -2,6 +2,14 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.8 (2022-08-16)
+------------------
+* Merge branch 'fix/laser-fov' into 'ferrum-devel'
+  fix laser fov for omni base
+  See merge request robots/omni_base_robot!4
+* fix laser fov for omni base
+* Contributors: antoniobrandi
+
 0.0.7 (2022-08-10)
 ------------------
 * Merge branch 'fix_base_collision' into 'ferrum-devel'
