@@ -2,8 +2,8 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.9 (2022-10-24)
+------------------
 * Merge branch 'feat/robust-odometry-integration' into 'ferrum-devel'
   disabled odom tf publication
   See merge request robots/omni_base_robot!6
