@@ -1,23 +1,28 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>omni_base_description</name>
   <version>0.0.10</version>
   <description>This package contains the description (mechanical, kinematic, visual,
       etc.) of the omni_base robot.  The files in this package are parsed and used by
       a variety of other components.  Most users will not interact directly
       with this package.</description>
-  <maintainer email="antonio.brandi@pal-robotics.com">Antonio Brandi</maintainer>
-  <author email="sai.kishor@pal-robotics.com">Sai Kishor Kothakota</author>
-  <author email="antonio.brandi@pal-robotics.com">Antonio Brandi</author>
-  <license>Creative Commons BY-NC-ND 3.0</license>
+  <author email="yue.erro@pal-robotics.com">Yue Erro</author>
+  <maintainer email="yue.erro@pal-robotics.com">Yue Erro</maintainer>
+  <license>Apache License 2.0</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
 
   <exec_depend>xacro</exec_depend>
   <exec_depend>pmb2_description</exec_depend>
-  <exec_depend>hector_gazebo_plugins</exec_depend>
+  <!-- Available in foxy -->
+  <!--  <exec_depend>hector_gazebo_plugins</exec_depend>-->
 
-  <test_depend>rostest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
   <test_depend>urdf_test</test_depend>
 
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>
