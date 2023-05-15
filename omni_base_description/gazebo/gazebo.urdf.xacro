@@ -16,9 +16,16 @@
   limitations under the License.
 -->
 
-<robot name="omni_base" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="omni_base">
+
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <!-- in the future move this param file somewhere else -->
+      <parameters>$(find omni_base_controller_configuration)/config/gazebo_controller_manager_cfg.yaml</parameters>
       <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
       <control_period>0.001</control_period>
       <xacro:if value="${is_multiple}">

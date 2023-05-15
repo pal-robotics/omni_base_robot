@@ -58,7 +58,7 @@
     <!-- Rear Laser Sensor -->
     <xacro:laser_sensor name="${name}_rear_laser" parent="${name}" model="${rear_laser_model}" ros_topic="scan_rear_raw">
       <origin xyz="-0.27512 0.18297 ${laser_height}" rpy="${-180 * deg_to_rad} 0 ${135 * deg_to_rad}" />
-    </xacro:laser_sensor> 
+    </xacro:laser_sensor>
 
     <!-- Front Laser Sensor -->
     <xacro:laser_sensor name="${name}_front_laser" parent="${name}" model="${front_laser_model}" ros_topic="scan_front_raw">

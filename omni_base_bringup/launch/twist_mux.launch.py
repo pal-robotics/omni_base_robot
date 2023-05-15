@@ -21,7 +21,7 @@ from launch_pal.include_utils import include_launch_py_description
 
 
 def generate_launch_description():
-    pkg = get_package_share_directory('pmb2_bringup')
+    pkg = get_package_share_directory('omni_base_bringup')
 
     twist_mux_launch = include_launch_py_description(
         'twist_mux', ['launch', 'twist_mux_launch.py'],
