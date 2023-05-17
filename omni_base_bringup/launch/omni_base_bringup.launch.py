@@ -21,8 +21,8 @@ def generate_launch_description():
     # @TODO missing equivalent to ROS1 robot_pose_node
     # @TODO missing equivalent to tf_lookup, but it may have been legacy from tf1
 
-    # default_controllers_launch = include_launch_py_description(
-    #     'omni_base_controller_configuration', ['launch', 'default_controllers.launch.py'])
+    default_controllers_launch = include_launch_py_description(
+        'omni_base_controller_configuration', ['launch', 'default_controllers.launch.py'])
 
     twist_mux_launch = include_launch_py_description(
         'omni_base_bringup', ['launch', 'twist_mux.launch.py'])
@@ -33,7 +33,7 @@ def generate_launch_description():
     # Create the launch description and populate
     ld = LaunchDescription()
 
-    # ld.add_action(default_controllers_launch)
+    ld.add_action(default_controllers_launch)
     ld.add_action(twist_mux_launch)
     ld.add_action(omni_base_state_publisher)
 
