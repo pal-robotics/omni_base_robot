@@ -18,8 +18,9 @@ from launch_pal.include_utils import include_launch_py_description
 
 def generate_launch_description():
 
-    mobile_base_controller_launch = include_launch_py_description(
-        'omni_base_controller_configuration', ['launch', 'mobile_base_controller.launch.py'])
+    # @TODO migrate omni_drive_controller
+    # mobile_base_controller_launch = include_launch_py_description(
+    #     'omni_base_controller_configuration', ['launch', 'mobile_base_controller.launch.py'])
 
     # Not used because the extra joints were changed to fixed
     # joint_state_broadcaster_launch = include_launch_py_description(
@@ -30,7 +31,7 @@ def generate_launch_description():
 
     ld = LaunchDescription()
 
-    ld.add_action(mobile_base_controller_launch)
+    # ld.add_action(mobile_base_controller_launch)
     # Not used because the extra joints were changed to fixed
     # ld.add_action(joint_state_broadcaster_launch)
     # @TODO: https://index.ros.org/p/imu_sensor_controller/#humble
