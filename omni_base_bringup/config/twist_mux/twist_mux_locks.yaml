@@ -24,3 +24,7 @@ twist_mux:
         topic   : joy_priority
         timeout : 0.0
         priority: 100
+      safety:
+        topic   : emergency_brake
+        timeout : 0.0
+        priority: 100
