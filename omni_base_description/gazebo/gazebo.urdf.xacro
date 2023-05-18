@@ -35,7 +35,8 @@
         <!-- Do something about multirobot -->
       </xacro:unless>
     </plugin>
-
+     
+    <!--@TODO: Migrate to humble, available in foxy-->
     <!--<plugin filename="libgazebo_ros_force_based_move.so" name="gazebo_force_based_move" >
       <commandTopic>mobile_base_controller/cmd_vel</commandTopic>
       <odometryTopic>mobile_base_controller/odom</odometryTopic>
