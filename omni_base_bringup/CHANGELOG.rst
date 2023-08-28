@@ -2,6 +2,9 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.0.10 (2022-12-27)
 -------------------
 * Merge branch 'fix/update-robot-state-publisher' into 'ferrum-devel'
