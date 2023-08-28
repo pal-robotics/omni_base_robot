@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.11 (2023-08-28)
+-------------------
 * Merge branch 'update_base_stl' into 'ferrum-devel'
   Update base_link.stl to simplify the mesh by removing inside components
   See merge request robots/omni_base_robot!8
