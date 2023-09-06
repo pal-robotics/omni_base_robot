@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.12 (2023-09-06)
+-------------------
 * Merge branch 'fix_stl' into 'ferrum-devel'
   Fix stl
   See merge request robots/omni_base_robot!9
