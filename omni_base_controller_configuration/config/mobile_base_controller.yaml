@@ -2,19 +2,20 @@ mobile_base_controller:
   ros__parameters:
     type: omni_drive_controller/OmniDriveController
     use_stamped_vel: False
-    left_front_wheel_names  : ['wheel_front_left_joint']
-    left_rear_wheel_names  : ['wheel_rear_left_joint']
-    right_front_wheel_names : ['wheel_front_right_joint']
-    right_rear_wheel_names : ['wheel_rear_right_joint']
+    left_front_wheel  : 'wheel_front_left_joint'
+    left_back_wheel  : 'wheel_rear_left_joint'
+    right_front_wheel : 'wheel_front_right_joint'
+    right_back_wheel : 'wheel_rear_right_joint'
 
     # In ROS1 these physical properties were parsed from the URDF
     wheel_radius: 0.0985
     wheel_separation: 0.4044
+    axis_separation: 0.488
 
     # @TODO: if wheel odometry is calibrated; these parameters should be in a separate yaml
     wheel_separation_multiplier: 1.0
-    left_wheel_radius_multiplier: 1.0
-    right_wheel_radius_multiplier: 1.0
+    wheel_radius_multiplier: 1.0
+    axis_separation_multiplier: 1.0
 
     # The params below were used in ROS1 but not yet in ROS2
 
@@ -65,6 +66,8 @@ mobile_base_controller:
       xy:
         max_velocity           : 0.7
       xz:
+        max_velocity           : 0.5
+      yz:
         max_velocity           : 0.5
       xyz:
         max_velocity           : 0.4
