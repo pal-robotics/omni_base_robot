@@ -28,9 +28,7 @@
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_antena_link.stl" scale="1 ${reflect} 1" />
         </geometry>
-        <material name="">
-          <color rgba="0.75294 0.75294 0.75294 1" />
-        </material>
+        <material name="FlatBlack" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />

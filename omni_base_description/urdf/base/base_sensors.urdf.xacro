@@ -17,8 +17,6 @@
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
   <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim571_laser.urdf.xacro"/>
 
-  <xacro:include filename="$(find omni_base_description)/urdf/deg_to_rad.xacro"/>
-
   <!-- Laser model can be: false, hokuyo, sick-551, sick-561, sick-571-->
   <xacro:macro name="laser_sensor" params="name parent model ros_topic *origin update_rate:=10">
 
