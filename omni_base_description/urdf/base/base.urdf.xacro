@@ -10,8 +10,6 @@
 -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find omni_base_description)/urdf/deg_to_rad.xacro"/>
-
   <xacro:include filename="$(find omni_base_description)/urdf/wheels/wheel.urdf.xacro"/>
   <xacro:include filename="$(find omni_base_description)/urdf/base/antenna.urdf.xacro"/>
 
@@ -41,9 +39,7 @@
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_link.stl" />
         </geometry>
-        <material name="">
-          <color rgba="0.75294 0.75294 0.75294 1" />
-        </material>
+        <material name="White" />
       </visual>
       <collision>
         <origin xyz="0 0 0.18925" rpy="0 0 0" />
@@ -103,9 +99,7 @@
         <geometry>
           <mesh filename="package://omni_base_description/meshes/base/base_dock_link.stl" />
         </geometry>
-        <material name="">
-          <color rgba="0.25098 0.25098 0.25098 1" />
-        </material>
+        <material name="FlatBlack" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -114,6 +108,11 @@
         </geometry>
       </collision>
     </link>
+
+    <gazebo reference="${name}_dock_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
     <joint name="${name}_dock" type="fixed">
       <origin xyz="0.3535 0 0.0596" rpy="0 0 0" />
       <parent link="${name}_link" />
