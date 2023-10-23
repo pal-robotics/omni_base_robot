@@ -36,15 +36,16 @@
       </xacro:unless>
     </plugin>
      
-    <!--@TODO: Migrate to humble, available in foxy-->
-    <!--<plugin filename="libgazebo_ros_force_based_move.so" name="gazebo_force_based_move" >
-      <commandTopic>mobile_base_controller/cmd_vel</commandTopic>
+    <plugin filename="libgazebo_ros_force_based_move.so" name="gazebo_force_based_move" >
+      <commandTopic>mobile_base_controller/cmd_vel_unstamped</commandTopic>
       <odometryTopic>mobile_base_controller/odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometryRate>50.0</odometryRate>
       <robotBaseFrame>base_footprint</robotBaseFrame>
-      <publishOdometryTf>true</publishOdometryTf>
-    </plugin>-->
+      <publishOdometryTf>false</publishOdometryTf>
+    </plugin>
+
+
   </gazebo>
 
   <gazebo reference="base_imu_link">

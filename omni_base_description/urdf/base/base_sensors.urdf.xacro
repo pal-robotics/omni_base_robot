@@ -11,11 +11,8 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find omni_base_description)/urdf/base/base.urdf.xacro"/>
+  <xacro:include filename="$(find omni_base_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
 
-  <xacro:include filename="$(find pmb2_description)/urdf/sensors/hokuyo_urg_04lx_ug01_laser.urdf.xacro"/>
-  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim551_laser.urdf.xacro"/>
-  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
-  <xacro:include filename="$(find pmb2_description)/urdf/sensors/sick_tim571_laser.urdf.xacro"/>
 
   <xacro:include filename="$(find omni_base_description)/urdf/deg_to_rad.xacro"/>
 
@@ -53,7 +50,7 @@
 
   <!-- front_laser_model can be: false, hokuyo, sick-551, sick-561, sick-571-->
   <!-- rear_laser_model can be: false, hokuyo, sick-551, sick-561, sick-571-->
-  <xacro:macro name="base_sensors" params=" name front_laser_model:=sick-571 rear_laser_model:=sick-571 laser_height:=0.13244">
+  <xacro:macro name="base_sensors" params=" name front_laser_model:=sick-561 rear_laser_model:=sick-561 laser_height:=0.13244">
 
     <!-- Rear Laser Sensor -->
     <xacro:laser_sensor name="${name}_rear_laser" parent="${name}" model="${rear_laser_model}" ros_topic="scan_rear_raw">

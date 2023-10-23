@@ -17,8 +17,8 @@
 <robot  xmlns:xacro="http://ros.org/wiki/xacro" name="omni_base" >
 
   <xacro:arg name="use_sim" default="true"/>
-  <xacro:arg name="front_laser_model" default="sick-571"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
-  <xacro:arg name="rear_laser_model" default="sick-571"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
+  <xacro:arg name="front_laser_model" default="sick-561"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
+  <xacro:arg name="rear_laser_model" default="sick-561"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
   <xacro:arg name="multiple" default="false"/>
   <xacro:arg name="namespace" default=""/>
   <xacro:property name="front_laser_model" value="$(arg front_laser_model)" />
@@ -49,5 +49,3 @@
   <xacro:base_sensors name="base" front_laser_model="$(arg front_laser_model)" rear_laser_model="$(arg rear_laser_model)"/>
 
 </robot>
-
-

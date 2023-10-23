@@ -1,1 +1,4 @@
-# Empty because the extra joints were changed to fixed. Will be fixed by changing how the config files are loaded
+joint_state_broadcaster:
+  ros__parameters:
+    type: joint_state_broadcaster/JointStateBroadcaster
+    publish_rate: 50.0
