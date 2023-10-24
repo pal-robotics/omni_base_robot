@@ -15,7 +15,7 @@
   <xacro:include filename="$(find omni_base_description)/urdf/wheels/wheel.urdf.xacro"/>
   <xacro:include filename="$(find omni_base_description)/urdf/base/antenna.urdf.xacro"/>
 
-  <xacro:include filename="$(find pmb2_description)/urdf/sensors/imu.urdf.xacro"/>
+  <xacro:include filename="$(find omni_base_description)/urdf/sensors/imu.urdf.xacro"/>
 
   <!-- Wheel characteristics -->
   <xacro:property name="wheel_radius"     value="0.0762"/>

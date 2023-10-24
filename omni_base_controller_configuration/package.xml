@@ -11,8 +11,7 @@
 
   <exec_depend>controller_manager</exec_depend>
   <exec_depend>joint_state_broadcaster</exec_depend>
-  <!--@TODO: https://index.ros.org/p/imu_sensor_controller/#humble-->
-  <!--<exec_depend>imu_sensor_broadcaster</exec_depend>-->
+  <exec_depend>imu_sensor_broadcaster</exec_depend>
   <exec_depend>omni_drive_controller</exec_depend>
 
   <export>

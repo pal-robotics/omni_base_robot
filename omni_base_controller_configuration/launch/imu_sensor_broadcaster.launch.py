@@ -21,9 +21,10 @@ from controller_manager.launch_utils import generate_load_controller_launch_desc
 
 def generate_launch_description():
     return generate_load_controller_launch_description(
-        controller_name='joint_state_broadcaster',
-        controller_type='joint_state_broadcaster/JointStateBroadcaster',
+        controller_name='imu_sensor_broadcaster',
+        controller_type='imu_sensor_broadcaster/IMUSensorBroadcaster',
         controller_params_file=os.path.join(
             get_package_share_directory('omni_base_controller_configuration'),
-            'config', 'joint_state_broadcaster.yaml')
+            'config', 'imu_sensor_broadcaster.yaml')
     )
+

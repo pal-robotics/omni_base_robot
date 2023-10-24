@@ -1,0 +1,6 @@
+imu_sensor_broadcaster:
+  ros__parameters:
+    sensor_name: "base_imu_sensor"
+    frame_id: "base_imu_link"
+    publish_rate: 50.0
+
