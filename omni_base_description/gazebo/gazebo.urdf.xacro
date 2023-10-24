@@ -36,9 +36,11 @@
       </xacro:unless>
     </plugin>
      
-    <plugin filename="libgazebo_ros_force_based_move.so" name="gazebo_force_based_move" >
-      <commandTopic>mobile_base_controller/cmd_vel_unstamped</commandTopic>
-      <odometryTopic>mobile_base_controller/odom</odometryTopic>
+    <plugin filename="libgazebo_ros_planar_move.so" name="gazebo_ros_planar_move" >
+      <ros>
+        <remapping>cmd_vel:=mobile_base_controller/cmd_vel_unstamped</remapping>
+        <remapping>odom:=mobile_base_controller/odom</remapping>
+      </ros>
       <odometryFrame>odom</odometryFrame>
       <odometryRate>50.0</odometryRate>
       <robotBaseFrame>base_footprint</robotBaseFrame>
