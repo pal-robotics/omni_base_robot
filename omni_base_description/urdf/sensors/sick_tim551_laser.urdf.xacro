@@ -16,9 +16,9 @@
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find omni_base_description)/urdf/sensors/sick_tim561_laser.gazebo.xacro" />
+  <xacro:include filename="$(find omni_base_description)/urdf/sensors/sick_tim551_laser.gazebo.xacro" />
 
-  <xacro:macro name="sick_tim561_laser" params="name parent *origin ros_topic update_rate min_angle max_angle">
+  <xacro:macro name="sick_tim551_laser" params="name parent *origin ros_topic update_rate min_angle max_angle">
 
      <link name="${name}_link" type="laser">
       <inertial>
@@ -43,6 +43,7 @@
       </collision>
     </link>
 
+
     <joint name="${name}_joint" type="fixed">
       <axis xyz="0 1 0"/>
       <xacro:insert_block name="origin"/>
@@ -51,7 +52,7 @@
     </joint>
 
     <!-- gazebo extensions -->
-    <xacro:sick_tim561_laser_gazebo name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
+    <xacro:sick_tim551_laser_gazebo name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
 
   </xacro:macro>
 

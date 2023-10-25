@@ -11,8 +11,11 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find omni_base_description)/urdf/base/base.urdf.xacro"/>
+  <xacro:include filename="$(find omni_base_description)/urdf/sensors/hokuyo_urg_04lx_ug01_laser.urdf.xacro"/>
+  <xacro:include filename="$(find omni_base_description)/urdf/sensors/sick_tim551_laser.urdf.xacro"/>
   <xacro:include filename="$(find omni_base_description)/urdf/sensors/sick_tim561_laser.urdf.xacro"/>
-
+  <xacro:include filename="$(find omni_base_description)/urdf/sensors/sick_tim571_laser.urdf.xacro"/>
+  
 
   <xacro:include filename="$(find omni_base_description)/urdf/deg_to_rad.xacro"/>
 
