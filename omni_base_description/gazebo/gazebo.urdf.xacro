@@ -34,19 +34,28 @@
       <xacro:unless value="${is_multiple}">
         <!-- Do something about multirobot -->
       </xacro:unless>
-    </plugin>
-     
-    <plugin filename="libgazebo_ros_planar_move.so" name="gazebo_ros_planar_move" >
+    </plugin>    
+    
+    <plugin name="gazebo_ros_planar_move" filename="libgazebo_ros_planar_move.so">
       <ros>
+        <xacro:if value="${is_multiple}">
+          <namespace>${nsp}</namespace>
+        </xacro:if>
+        <!-- Remap the default topic -->
         <remapping>cmd_vel:=mobile_base_controller/cmd_vel_unstamped</remapping>
         <remapping>odom:=mobile_base_controller/odom</remapping>
       </ros>
+      <update_rate>100</update_rate>
+      <publish_rate>50</publish_rate>
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
       <odometry_frame>odom</odometry_frame>
-      <publish_rate>50.0</publish_rate>
       <robot_base_frame>base_footprint</robot_base_frame>
-      <publish_odom_tf>false</publish_odom_tf>
+      <covariance_x>0.0001</covariance_x>
+      <covariance_y>0.0001</covariance_y>
+      <covariance_yaw>0.01</covariance_yaw>
     </plugin>
-
 
   </gazebo>
 
