@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <!--
   Copyright (c) 2023 PAL Robotics S.L. All rights reserved.
 
@@ -15,7 +14,6 @@
   See the License for the specific language governing permissions and
   limitations under the License.
  -->
-
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:property name="PI" value="3.1415926535897931" />

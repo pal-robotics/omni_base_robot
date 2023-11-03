@@ -46,7 +46,7 @@
         <remapping>odom:=mobile_base_controller/odom</remapping>
       </ros>
       <update_rate>100</update_rate>
-      <publish_rate>50</publish_rate>
+      <publish_rate>1000</publish_rate>
       <!-- output -->
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
