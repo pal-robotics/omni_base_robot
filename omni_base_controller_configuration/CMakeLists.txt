@@ -8,4 +8,10 @@ find_package(ament_cmake_pal QUIET)
 
 ament_auto_find_build_dependencies()
 
+if(pal_module_cmake_FOUND)
+  pal_register_modules(
+    module/default_controllers.yaml
+  )
+endif()
+
 ament_auto_package(INSTALL_TO_SHARE config launch)
