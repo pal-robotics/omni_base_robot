@@ -19,7 +19,7 @@
   <exec_depend>omni_base_description</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>robot_control</exec_depend>
-  <exec_depend>speed_limit_node</exec_depend>
+  <!-- <exec_depend>speed_limit_node</exec_depend> -->
   <exec_depend>twist_mux</exec_depend>
 
   <export>
