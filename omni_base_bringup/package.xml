@@ -10,14 +10,14 @@
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
+  <build_depend condition="$PAL_DISTRO >= alum">pal_module_cmake</build_depend>
+
   <exec_depend>joy</exec_depend>
   <exec_depend>joy_teleop</exec_depend>
   <exec_depend>launch_pal</exec_depend>
   <exec_depend>omni_base_controller_configuration</exec_depend>
   <exec_depend>omni_base_description</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>robot_control</exec_depend>
-  <exec_depend>speed_limit_node</exec_depend>
   <exec_depend>twist_mux</exec_depend>
 
   <export>
