@@ -2,6 +2,12 @@
 Changelog for package omni_base_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* omni_base ROS 2
+* omnibase robot to colcon
+* Contributors: YueErro, andreacapodacqua
+
 0.0.10 (2022-12-27)
 -------------------
 

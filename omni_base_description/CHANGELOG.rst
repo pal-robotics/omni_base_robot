@@ -2,6 +2,35 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/module' into 'humble-devel'
+  Feat/module
+  See merge request robots/omni_base_robot!13
+* using correct name
+* split bringup module
+* Merge branch 'fix/use_sim_time' into 'humble-devel'
+  Set use_sim_time false as default
+  See merge request robots/omni_base_robot!12
+* Set use_sim_time false as default
+* update copyright
+* fix: planar move plugin
+* omni_base ROS 2
+* fix lidar mesh issues and using light base stl
+* fix: planar move plugin parameters
+* fix: replace force_based_move by planar_move
+* add imu_sensor_broadcaster fix robot_model
+* ROS 2 omni base robot
+* Add TODO to gazebo.urdf.xacro force based move plugin
+* enable control(er) and 2dnav
+* fix: Load gazebo_controller_manager_cfg.yaml and launch only omnibase stuff that is ready
+* omnibase description to ROS 2:
+  + xacro
+  + ros2_control
+  + launch.py
+* omnibase description to colcon
+* Contributors: Noel Jimenez, YueErro, andreacapodacqua, josegarcia
+
 0.0.10 (2022-12-27)
 -------------------
 

@@ -2,6 +2,28 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/module' into 'humble-devel'
+  Feat/module
+  See merge request robots/omni_base_robot!13
+* fix deps
+* fix dep
+* split bringup module
+* removed 2dnav dep
+* update copyright
+* omni_base ROS 2
+* ROS 2 omni base robot
+* add emergency brake priority
+* disable controller and add TODO
+* enable control(er) and 2dnav
+* fix: Load gazebo_controller_manager_cfg.yaml and launch only omnibase stuff that is ready
+* omnibase bringup to ROS 2:
+  + yaml
+  + launch.py
+* omnibase bringup to colcon
+* Contributors: YueErro, andreacapodacqua
+
 0.0.10 (2022-12-27)
 -------------------
 * Merge branch 'fix/update-robot-state-publisher' into 'ferrum-devel'

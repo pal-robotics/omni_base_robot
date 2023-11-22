@@ -2,6 +2,29 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/module' into 'humble-devel'
+  Feat/module
+  See merge request robots/omni_base_robot!13
+* fix deps
+* fix default controllers
+* using correct name
+* split bringup module
+* omni_base ROS 2
+* add imu_sensor_broadcaster fix robot_model
+* ROS 2 omni base robot
+* Update mobile_base_controller to work with omni_drive_controller
+* chore: wheel odometry calibration params recom
+* disable controller and add TODO
+* enable control(er) and 2dnav
+* fix: Load gazebo_controller_manager_cfg.yaml and launch only omnibase stuff that is ready
+* omnibase controller configuration to ROS 2:
+  + yaml
+  + launch.py
+* omnibase controller conf to colcon
+* Contributors: YueErro, andreacapodacqua, antoniobrandi, josecarlos
+
 0.0.10 (2022-12-27)
 -------------------
 
