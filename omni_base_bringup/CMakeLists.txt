@@ -11,6 +11,7 @@ ament_auto_find_build_dependencies()
 if(pal_module_cmake_FOUND)
   pal_register_modules(
     module/twist_mux.yaml
+    module/joystick.yaml
   )
 endif()
 
