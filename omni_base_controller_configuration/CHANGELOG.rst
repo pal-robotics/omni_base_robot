@@ -2,6 +2,14 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/modules-ros2' into 'humble-devel'
+  fix modules
+  See merge request robots/omni_base_robot!14
+* moved omni modules from 00 to 10
+* Contributors: Noel Jimenez, andreacapodacqua
+
 2.0.0 (2023-11-22)
 ------------------
 * Merge branch 'feat/module' into 'humble-devel'
