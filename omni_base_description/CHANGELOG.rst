@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.1 (2023-12-11)
+------------------
 * Merge branch 'fix/modules-ros2' into 'humble-devel'
   fix modules
   See merge request robots/omni_base_robot!14
