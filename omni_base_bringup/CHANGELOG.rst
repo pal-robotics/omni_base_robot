@@ -2,8 +2,8 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.2 (2023-12-15)
+------------------
 * Merge branch 'fix/joystick-ros2' into 'humble-devel'
   added y-axis movement joystick
   See merge request robots/omni_base_robot!15
