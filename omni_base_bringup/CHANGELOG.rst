@@ -2,8 +2,8 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.3 (2024-02-02)
+------------------
 * Merge branch 'feat/register-components' into 'humble-devel'
   removing need for remapping cmd_vel topic
   See merge request robots/omni_base_robot!16
