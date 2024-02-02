@@ -2,6 +2,14 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/register-components' into 'humble-devel'
+  removing need for remapping cmd_vel topic
+  See merge request robots/omni_base_robot!16
+* removing need for remapping cmd_vel topic
+* Contributors: antoniobrandi
+
 2.0.2 (2023-12-15)
 ------------------
 * Merge branch 'fix/joystick-ros2' into 'humble-devel'
