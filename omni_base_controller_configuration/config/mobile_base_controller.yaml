@@ -8,8 +8,8 @@ mobile_base_controller:
     right_back_wheel : 'wheel_rear_right_joint'
 
     # In ROS1 these physical properties were parsed from the URDF
-    wheel_radius: 0.0985
-    wheel_separation: 0.4044
+    wheel_radius: 0.0762
+    wheel_separation: 0.44715
     axis_separation: 0.488
 
     # @TODO: if wheel odometry is calibrated; these parameters should be in a separate yaml
