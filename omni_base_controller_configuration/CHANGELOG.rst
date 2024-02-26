@@ -2,8 +2,8 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.4 (2024-02-26)
+------------------
 * Merge branch 'abr/fix/controller' into 'humble-devel'
   fix wheel_radius and wheel_separation
   See merge request robots/omni_base_robot!17
