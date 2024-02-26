@@ -2,6 +2,9 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.0.3 (2024-02-02)
 ------------------
 * Merge branch 'feat/register-components' into 'humble-devel'
