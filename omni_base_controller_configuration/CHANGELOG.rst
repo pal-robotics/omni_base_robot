@@ -2,8 +2,8 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.5 (2024-03-06)
+------------------
 * Merge branch 'feat/dlo-integration' into 'humble-devel'
   direct laser odometry integration
   See merge request robots/omni_base_robot!18
