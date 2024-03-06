@@ -29,6 +29,9 @@ mobile_base_controller:
     # Base frame_id
     base_frame_id: base_footprint
 
+    # odom tf will be published by direct laser odometry
+    enable_odom_tf: false
+
     # Odom frame_id
     odom_frame_id: odom
 
