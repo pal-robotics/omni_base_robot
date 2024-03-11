@@ -44,8 +44,11 @@
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <publishOdometryTf>true</publishOdometryTf>
       <xacro:if value="${is_multiple}">
-          <robotNamespace>${nsp}</robotNamespace>
+        <!-- Do something about multirobot -->
       </xacro:if>
+      <xacro:unless value="${is_multiple}">
+        <!-- Do something about multirobot -->
+      </xacro:unless>
     </plugin>
 
   </gazebo>
