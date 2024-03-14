@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from launch import LaunchDescription
-from launch.conditions import  LaunchConfigurationNotEquals
+from launch.conditions import LaunchConfigurationNotEquals
 from launch_pal.include_utils import include_launch_py_description
 
 
