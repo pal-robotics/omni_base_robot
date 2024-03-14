@@ -20,24 +20,13 @@
     <gazebo reference="wheel_${side}_link">
       <kp>1000000.0</kp>
       <kd>1000.0</kd>
-      <friction>
-        <ode>
-          <mu>0.0</mu>
-          <mu2>0.0</mu2>
-        </ode>
-      </friction>
-      <!--<fdir1>1 0 0</fdir1>-->
-      <max_vel>1.0</max_vel>
-      <min_depth>0.0</min_depth>
+      <mu1>0.0</mu1>
+      <mu2>0.0</mu2>
+      <fdir1>1 0 0</fdir1>
+      <maxVel>1.0</maxVel>
+      <minDepth>0.00</minDepth>
       <implicitSpringDamper>1</implicitSpringDamper>
-      <material>Gazebo/DarkGrey</material>
-    </gazebo>
-    <gazebo reference="wheel_{side}_joint">
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
+      <material>Gazebo/Grey</material>
     </gazebo>
   </xacro:macro>
 
