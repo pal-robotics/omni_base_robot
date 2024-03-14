@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.6 (2024-03-14)
+------------------
 * Merge branch 'dtk/feat/force-based-move-plugin' into 'humble-devel'
   Dtk/feat/force based move plugin
   See merge request robots/omni_base_robot!19
