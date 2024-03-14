@@ -13,15 +13,15 @@
 # limitations under the License.
 
 from launch import LaunchDescription
+from launch.conditions import  LaunchConfigurationNotEquals
 from launch_pal.include_utils import include_launch_py_description
 
 
 def generate_launch_description():
 
-    
     mobile_base_controller_launch = include_launch_py_description(
-        'omni_base_controller_configuration', ['launch', 'mobile_base_controller.launch.py'])
-
+        'omni_base_controller_configuration', ['launch', 'mobile_base_controller.launch.py'],
+        condition=LaunchConfigurationNotEquals('use_sim_time', 'True'))
 
     joint_state_broadcaster_launch = include_launch_py_description(
         'omni_base_controller_configuration', ['launch', 'joint_state_broadcaster.launch.py'])
