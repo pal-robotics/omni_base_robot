@@ -2,6 +2,15 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'dtk/feat/force-based-move-plugin' into 'humble-devel'
+  Dtk/feat/force based move plugin
+  See merge request robots/omni_base_robot!19
+* linters
+* disabled mobile_base_controller in simulation
+* Contributors: andreacapodacqua
+
 2.0.5 (2024-03-06)
 ------------------
 * Merge branch 'feat/dlo-integration' into 'humble-devel'

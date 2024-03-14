@@ -2,6 +2,18 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'dtk/feat/force-based-move-plugin' into 'humble-devel'
+  Dtk/feat/force based move plugin
+  See merge request robots/omni_base_robot!19
+* Create a pal_distro dependency to not break humble ci untill pr gets accepted
+* Add hector gazebo plugin dependency
+* Remove namespace for multirobot
+* Change to force_based_move from hector gazebo plugins
+* Remove friction of the wheels, similar to as in ROS1
+* Contributors: David ter Kuile, andreacapodacqua, davidterkuile
+
 2.0.5 (2024-03-06)
 ------------------
 
