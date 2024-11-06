@@ -2,6 +2,9 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.4.2 (2024-10-18)
 ------------------
 * Merge branch 'tpe/fix_base_inertia' into 'humble-devel'

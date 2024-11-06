@@ -2,6 +2,11 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Set update_rate for joint_state_broadcaster
+* Contributors: Noel Jimenez
+
 2.4.2 (2024-10-18)
 ------------------
 

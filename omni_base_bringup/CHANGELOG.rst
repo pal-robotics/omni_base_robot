@@ -2,6 +2,9 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.4.2 (2024-10-18)
 ------------------
 
