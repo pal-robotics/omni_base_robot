@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.5.1 (2024-11-08)
+------------------
 * Remove add_module_on from test
 * Add xacro tests
 * Contributors: Aina
