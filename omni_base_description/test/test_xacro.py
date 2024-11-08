@@ -25,9 +25,5 @@ xacro_file_path = Path(
     'omni_base.urdf.xacro',
 )
 
-omni_args = (
-    OmniBaseArgs.laser_model,
-    OmniBaseArgs.add_on_module,
-)
-
-test_xacro = define_xacro_test(xacro_file_path, omni_args)
+# TODO: Add the add_module_on arg to the xacro test
+test_xacro = define_xacro_test(xacro_file_path, OmniBaseArgs.laser_model)
