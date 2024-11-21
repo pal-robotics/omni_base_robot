@@ -22,7 +22,7 @@ from launch.actions import DeclareLaunchArgument, GroupAction
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import PythonExpression
-from launch_ros.actions import Node
+from launch.actions import ExecuteProcess
 from launch_pal.robot_arguments import CommonArgs
 from launch_pal.arg_utils import LaunchArgumentsBase
 
@@ -52,12 +52,16 @@ def declare_actions(
     pkg_share_folder = get_package_share_directory('omni_base_controller_configuration')
 
     # Temporary Fix when using rolling version of ros2 control
-    twist_relay = Node(
-        package='topic_tools',
-        executable='relay_field',
+    twist_relay = ExecuteProcess(
+        cmd=[
+            'ros2', 'run', 'topic_tools', 'relay_field',
+            '/mobile_base_controller/cmd_vel',
+            '/mobile_base_controller/cmd_vel_unstamped',
+            'geometry_msgs/Twist',
+            '{linear: m.twist.linear, angular: m.twist.angular}'
+        ],
         name='twist_relay',
-        arguments=['/mobile_base_controller/cmd_vel', '/mobile_base_controller/cmd_vel_unstamped',
-                   'geometry_msgs/Twist', '{linear: m.twist.linear, angular: m.twist.angular}'],
+        respawn=True,
         condition=IfCondition(
             PythonExpression(
                 [
@@ -68,7 +72,8 @@ def declare_actions(
                     "' == 'True'"
                 ]
             )
-        ))
+        )
+    )
 
     launch_description.add_action(twist_relay)
 
