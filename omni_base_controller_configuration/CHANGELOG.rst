@@ -2,6 +2,14 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'abr/fix/twist-relay' into 'humble-devel'
+  using execute process to respawn twist_relay node
+  See merge request robots/omni_base_robot!53
+* using execute process to respawn twist_relay node
+* Contributors: antoniobrandi
+
 2.5.1 (2024-11-08)
 ------------------
 
