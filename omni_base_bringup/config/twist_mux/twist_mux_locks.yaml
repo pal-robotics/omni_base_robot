@@ -16,10 +16,10 @@
         timeout : 0.0
         # Same priority as joystick control, so it'll not block it.
         priority: 100
-      loop_closure:
-        topic   : stop_closing_loop
+      charging:
+        topic   : charging_priority
         timeout : 0.0
-        priority: 200
+        priority: 255
       joystick:
         topic   : joy_priority
         timeout : 0.0
