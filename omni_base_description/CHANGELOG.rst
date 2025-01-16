@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.6.0 (2025-01-16)
+------------------
 * Merge branch 'tpe/simplify-3d-model' into 'humble-devel'
   Simplify 3d meshes
   See merge request robots/omni_base_robot!54
