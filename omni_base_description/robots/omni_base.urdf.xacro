@@ -28,6 +28,9 @@
   <!-- false, true-->
   <xacro:arg name="add_on_module" default="no-add-on"/>
 
+  <!-- no-camera, realsense-d435, realsense-d435i -->
+  <xacro:arg name="camera_model" default="no-camera"/>
+
   <!-- Execution env config -->
   <xacro:arg name="use_sim_time" default="false"/>
   <xacro:arg name="is_multiple" default="false"/>
@@ -40,6 +43,7 @@
   <xacro:property name="front_laser_model" value="$(arg front_laser_model)" />
   <xacro:property name="rear_laser_model" value="$(arg rear_laser_model)" />
   <xacro:property name="add_on_module" value="$(arg add_on_module)"/>
+  <xacro:property name="camera_model" value="$(arg camera_model)" />
 
   <!-- HW configuration check -->
   <xacro:if value="${front_laser_model not in ['no-laser', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
@@ -48,8 +52,11 @@
   <xacro:if value="${rear_laser_model not in ['no-laser', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
     <xacro:wrong_laser_model/>
   </xacro:if>
-  <xacro:if value="${add_on_module not in ['no-add-on', 'rgbd-sensors']}">
+  <xacro:if value="${add_on_module not in ['no-add-on', 'cobra']}">
     <xacro:wrong_add_on_module/>
+  </xacro:if>
+  <xacro:if value="${camera_model not in ['no-camera', 'realsense-d435', 'realsense-d435i']}">
+    <xacro:wrong_camera_model/>
   </xacro:if>
 
   <!-- Execution env configuration -->
@@ -64,7 +71,7 @@
   <xacro:include filename="$(find omni_base_description)/urdf/base/base_sensors.urdf.xacro" />
 
   <!-- RGBD Sensors -->
-  <xacro:if value="${add_on_module == 'rgbd-sensors'}">
+  <xacro:if value="${add_on_module == 'cobra'}">
     <xacro:include filename="$(find omni_base_description)/urdf/cameras_add_on/cameras_add_on.urdf.xacro" />
   </xacro:if>
 
@@ -84,7 +91,7 @@
   <xacro:base_sensors name="base" front_laser_model="$(arg front_laser_model)" rear_laser_model="$(arg rear_laser_model)"/>
 
   <!-- RGBD Sensors -->
-  <xacro:if value="${add_on_module == 'rgbd-sensors'}">
+  <xacro:if value="${add_on_module == 'cobra'}">
     <xacro:cameras_add_on name="cameras_add_on" parent="base_link"/>
   </xacro:if>
 
