@@ -2,6 +2,12 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* updated docking vel and lock topics
+* lock robot if charging
+* Contributors: antoniobrandi
+
 2.6.0 (2025-01-16)
 ------------------
 
