@@ -2,6 +2,11 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* support cobra and camera model
+* Contributors: antoniobrandi
+
 2.7.0 (2025-01-22)
 ------------------
 * updated docking vel and lock topics
