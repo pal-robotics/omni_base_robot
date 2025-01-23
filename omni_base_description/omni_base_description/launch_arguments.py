@@ -31,3 +31,4 @@ class OmniBaseArgs:
     laser_model: DLA = __arg_creator.get_argument('laser_model')
     wheel_model: DLA = __arg_creator.get_argument('wheel_model')
     add_on_module: DLA = __arg_creator.get_argument('add_on_module')
+    camera_model: DLA = __arg_creator.get_argument('camera_model')
