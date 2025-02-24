@@ -2,6 +2,12 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* updated maintainer
+* update locks topics and teleop to integrate assisted_teleop
+* Contributors: andreacapodacqua
+
 2.8.0 (2025-01-23)
 ------------------
 * support cobra and camera model

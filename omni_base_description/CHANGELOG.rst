@@ -2,6 +2,11 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* updated maintainer
+* Contributors: andreacapodacqua
+
 2.8.0 (2025-01-23)
 ------------------
 * support cobra and camera model
