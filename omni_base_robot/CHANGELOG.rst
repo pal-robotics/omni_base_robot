@@ -2,8 +2,8 @@
 Changelog for package omni_base_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.9.0 (2025-02-24)
+------------------
 * updated maintainer
 * Contributors: andreacapodacqua
 

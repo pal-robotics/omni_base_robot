@@ -2,8 +2,8 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.9.0 (2025-02-24)
+------------------
 * updated maintainer
 * update locks topics and teleop to integrate assisted_teleop
 * Contributors: andreacapodacqua
