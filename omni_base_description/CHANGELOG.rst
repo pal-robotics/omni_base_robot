@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.10.1 (2025-04-09)
+-------------------
 * Merge branch 'tpe/imu_fix' into 'humble-devel'
   Pass the name to the IMU plugin in case we have several IMUs
   See merge request robots/omni_base_robot!63
