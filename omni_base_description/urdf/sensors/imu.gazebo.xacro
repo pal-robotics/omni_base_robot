@@ -41,10 +41,10 @@
             </accel>
           </noise>
         </imu>
-        <plugin name="base_imu" filename="libgazebo_ros_imu_sensor.so">
+        <plugin name="${name}" filename="libgazebo_ros_imu_sensor.so">
           <ros>
             <!-- publish to /imu/data -->
-            <remapping>~/out:=base_imu</remapping>
+            <remapping>~/out:=${name}</remapping>
           </ros>
         </plugin>
       </sensor>
