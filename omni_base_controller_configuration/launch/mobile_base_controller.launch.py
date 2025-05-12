@@ -23,6 +23,7 @@ from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import PythonExpression
 from launch.actions import ExecuteProcess
+from launch_ros.actions import PushRosNamespace
 from launch_pal.robot_arguments import CommonArgs
 from launch_pal.arg_utils import LaunchArgumentsBase
 
@@ -75,11 +76,11 @@ def declare_actions(
         )
     )
 
-    launch_description.add_action(twist_relay)
-
     # Base controller
     base_controller = GroupAction(
         [
+            PushRosNamespace(LaunchConfiguration('namespace')),
+            twist_relay,
             generate_load_controller_launch_description(
                 controller_name='mobile_base_controller',
                 controller_params_file=os.path.join(
