@@ -62,16 +62,16 @@ def declare_actions(
 
     launch_description.add_action(default_controllers)
 
-    # twist_mux = include_scoped_launch_py_description(
-    #     pkg_name='omni_base_bringup',
-    #     paths=['launch', 'twist_mux.launch.py'],
-    #     launch_arguments={
-    #         'use_sim_time': launch_args.use_sim_time,
-    #         'namespace': launch_args.namespace,
-    #     },
-    # )
+    twist_mux = include_scoped_launch_py_description(
+        pkg_name='omni_base_bringup',
+        paths=['launch', 'twist_mux.launch.py'],
+        launch_arguments={
+            'use_sim_time': launch_args.use_sim_time,
+            'namespace': launch_args.namespace,
+        },
+    )
 
-    # launch_description.add_action(twist_mux)
+    launch_description.add_action(twist_mux)
 
     robot_state_publisher = include_scoped_launch_py_description(
         pkg_name='omni_base_description',
