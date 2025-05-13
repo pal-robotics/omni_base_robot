@@ -41,7 +41,7 @@
     <gazebo>   
       <plugin name="gazebo_ros_planar_move" filename="libgazebo_ros_planar_move.so">
         <ros>
-          <namespace>/${namespace}</namespace>
+          <namespace>${namespace}</namespace>
           <remapping>cmd_vel:=mobile_base_controller/cmd_vel_unstamped</remapping>
           <remapping>odom:=mobile_base_controller/odom</remapping>
         </ros>
