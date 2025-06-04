@@ -21,21 +21,21 @@
   <xacro:macro name="camera_on_top" params="name parent">
     <link name="${name}_link">
       <inertial>
-        <origin xyz="-0.00001132 0.04392363 0.06783541" rpy="0.0 0.0 0.0"/>
-        <mass value="3.057"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
         <inertia ixx="0.08241443" ixy="-0.00000558" ixz="-0.00001319"
           iyy="0.05540468" iyz="0.01732357"
           izz="0.07634613"/>
         </inertial>
         <visual>
-          <origin xyz="0 0 -0.04" rpy="1.57 0 1.57"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
           <geometry>
             <mesh filename="package://omni_base_description/meshes/cameras_add_on/camera_on_top.stl" scale="1 1 1"/>
           </geometry>
           <material name="White" />
         </visual>
         <collision>
-          <origin xyz="0 0 -0.04" rpy="1.57 0 1.57"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
           <geometry>
             <mesh filename="package://omni_base_description/meshes/cameras_add_on/camera_on_top.stl" scale="1 1 1"/>
           </geometry>
