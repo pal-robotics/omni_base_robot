@@ -17,8 +17,15 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
+
+  <xacro:property name="use_sim_time" value="$(arg use_sim_time)" />
+  <xacro:property name="rgbd_x" value="0.28595"/>
+  <xacro:property name="rgbd_y" value="0.0"/>
+  <xacro:property name="rgbd_z" value="0.28125"/>
+
   <!-- MACRO DEFINITION -->
-  <xacro:macro name="camera_on_top" params="name parent">
+  <xacro:macro name="camera_horizon_add_on" params="name parent">
     <link name="${name}_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -30,14 +37,14 @@
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://omni_base_description/meshes/cameras_add_on/camera_on_top.stl" scale="1 1 1"/>
+            <mesh filename="package://omni_base_description/meshes/cameras_add_on/camera_horizon.stl" scale="1 1 1"/>
           </geometry>
           <material name="White" />
         </visual>
         <collision>
           <origin xyz="0 0 0" rpy="0 0 0"/>
           <geometry>
-            <mesh filename="package://omni_base_description/meshes/cameras_add_on/camera_on_top.stl" scale="1 1 1"/>
+            <mesh filename="package://omni_base_description/meshes/cameras_add_on/camera_horizon.stl" scale="1 1 1"/>
           </geometry>
           <material name="White" />
         </collision>
@@ -50,6 +57,30 @@
       </joint>
     </xacro:macro>
 
-    <xacro:include filename="$(find omni_base_description)/urdf/sensors/camera_on_top.urdf.xacro" />
+    <xacro:if value="${camera_model == 'realsense-d435'}">
+      <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+      <xacro:sensor_d435
+        name="rgbd_camera" 
+        parent="base_link"
+        topics_ns="rgbd_camera"
+        use_nominal_extrinsics="${use_sim_time}">
+        <origin 
+            xyz="${rgbd_x} ${rgbd_y} ${rgbd_z}"
+            rpy="0.0 0.0 0.0"/>
+      </xacro:sensor_d435>
+    </xacro:if>
+  
+    <xacro:if value="${camera_model == 'realsense-d435i'}">
+      <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro" />
+      <xacro:sensor_d435i
+        name="rgbd_camera" 
+        parent="base_link"
+        topics_ns="rgbd_camera"
+        use_nominal_extrinsics="${use_sim_time}">
+        <origin 
+            xyz="${rgbd_x} ${rgbd_y} ${rgbd_z}"
+            rpy="0.0 0.0 0.0"/>
+      </xacro:sensor_d435i>
+    </xacro:if>
 
   </robot>
