@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.10.3 (2025-06-11)
+-------------------
 * Change path related to restructure path for pal_urdf_utils
 * Change path from sensor courier to add_on cameras
 * Delete sensors files
