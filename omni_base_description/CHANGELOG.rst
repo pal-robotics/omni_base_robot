@@ -2,6 +2,11 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Remove unused ros2_control imu
+* Contributors: Noel Jimenez
+
 2.10.1 (2025-04-09)
 -------------------
 * Merge branch 'tpe/imu_fix' into 'humble-devel'
