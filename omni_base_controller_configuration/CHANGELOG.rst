@@ -2,8 +2,8 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.10.2 (2025-06-11)
+-------------------
 * Remove unused ros2_control imu
 * Contributors: Noel Jimenez
 
