@@ -50,6 +50,6 @@
       </joint>
     </xacro:macro>
 
-    <xacro:include filename="$(find omni_base_description)/urdf/sensors/courier.urdf.xacro" />
+    <xacro:include filename="$(find omni_base_description)/urdf/cameras_add_on/cameras.urdf.xacro" />
 
   </robot>

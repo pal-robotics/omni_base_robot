@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
+  Copyright (c) 2025 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -32,10 +32,16 @@
   <xacro:property name="roof_rgbd_x" value="0.297329"/>
   <xacro:property name="roof_rgbd_y" value="0.0"/>
   <xacro:property name="roof_rgbd_Y" value="0.0"/>
+  <!-- RGBD base -->
+  <xacro:property name="base_rgbd_z" value="0.551436"/>
+  <xacro:property name="base_rgbd_R" value="0.0"/>
+  <xacro:property name="base_rgbd_P" value="55.0"/>
 
-  <!-- base/roof RGBD calibratable characteristics -->
-  <!-- spec = rgbd_z, rgbd_R and rgbd_P -->
-  <xacro:include filename="${calibration_path}/urdf/cameras_add_on/base_omni_base_calib.urdf.xacro"/>
+  <!-- RGBD roof -->
+  <xacro:property name="roof_rgbd_z" value="0.483197"/>
+  <xacro:property name="roof_rgbd_R" value="0.0"/>
+  <xacro:property name="roof_rgbd_P" value="12.0"/>
+
   <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
 
   <xacro:if value="${camera_model == 'realsense-d435'}">
