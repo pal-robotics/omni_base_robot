@@ -2,6 +2,16 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Change path related to restructure path for pal_urdf_utils
+* Change path from sensor courier to add_on cameras
+* Delete sensors files
+* Change path for hokuyo and courier
+* Change path for sick lasers
+* Change urdf for imu and imu gazebo
+* Contributors: Aina
+
 2.10.2 (2025-06-11)
 -------------------
 * Remove unused ros2_control imu
