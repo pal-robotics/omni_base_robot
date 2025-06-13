@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2025 PAL Robotics S.L. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
+
+  <xacro:property name="use_sim_time" value="$(arg use_sim_time)" />
+  <xacro:property name="rgbd_x" value="0.28595"/>
+  <xacro:property name="rgbd_y" value="0.0"/>
+  <xacro:property name="rgbd_z" value="0.28125"/>
+
+  <!-- MACRO DEFINITION -->
+  <xacro:macro name="camera_horizon_add_on" params="name parent">
+    <link name="${name}_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.00009667" ixy="0.0" ixz="0.0"
+          iyy="0.00020083" iyz="0.0"
+          izz="0.00027083"/>
+        </inertial>
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://omni_base_description/meshes/cameras_add_on/camera_horizon.stl" scale="1 1 1"/>
+          </geometry>
+          <material name="White" />
+        </visual>
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="package://omni_base_description/meshes/cameras_add_on/camera_horizon.stl" scale="1 1 1"/>
+          </geometry>
+          <material name="White" />
+        </collision>
+      </link>
+      <joint name="${name}_joint" type="fixed">
+        <parent link="${parent}"/>
+        <child link="${name}_link"/>
+        <origin xyz="0.0 0.0 0.0"  rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+      </joint>
+    </xacro:macro>
+
+    <xacro:if value="${camera_model == 'realsense-d435'}">
+      <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+      <xacro:sensor_d435
+        name="rgbd_camera" 
+        parent="base_link"
+        topics_ns="rgbd_camera"
+        use_nominal_extrinsics="${use_sim_time}">
+        <origin 
+            xyz="${rgbd_x} ${rgbd_y} ${rgbd_z}"
+            rpy="0.0 0.0 0.0"/>
+      </xacro:sensor_d435>
+    </xacro:if>
+  
+    <xacro:if value="${camera_model == 'realsense-d435i'}">
+      <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro" />
+      <xacro:sensor_d435i
+        name="rgbd_camera" 
+        parent="base_link"
+        topics_ns="rgbd_camera"
+        use_nominal_extrinsics="${use_sim_time}">
+        <origin 
+            xyz="${rgbd_x} ${rgbd_y} ${rgbd_z}"
+            rpy="0.0 0.0 0.0"/>
+      </xacro:sensor_d435i>
+    </xacro:if>
+
+  </robot>

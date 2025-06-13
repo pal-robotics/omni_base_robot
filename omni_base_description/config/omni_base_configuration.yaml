@@ -8,7 +8,7 @@ laser_model:
   default_value: 'sick-571'
 add_on_module:
   description: 'Whether the base has an add-on module'
-  choices: ['no-add-on', 'cobra']
+  choices: ['no-add-on', 'cobra', 'horizon']
   default_value: 'no-add-on'
 camera_model:
   description: 'Camera model'
