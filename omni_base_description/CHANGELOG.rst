@@ -2,6 +2,15 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* typo
+* update inertia
+* changed name from camera_on_top to camera_horizon_add_on
+* added mesh and position of camera on top
+* single camera integration
+* Contributors: andreacapodacqua
+
 2.10.3 (2025-06-11)
 -------------------
 * Change path related to restructure path for pal_urdf_utils
