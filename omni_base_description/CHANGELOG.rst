@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.11.0 (2025-06-13)
+-------------------
 * typo
 * update inertia
 * changed name from camera_on_top to camera_horizon_add_on
