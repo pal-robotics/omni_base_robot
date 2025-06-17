@@ -2,6 +2,13 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* uniform namespaces in URDF
+* support namespaces for control
+* init support to namespaces
+* Contributors: antoniobrandi
+
 2.11.0 (2025-06-13)
 -------------------
 * typo
