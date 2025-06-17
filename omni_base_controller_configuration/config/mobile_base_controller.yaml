@@ -1,4 +1,4 @@
-mobile_base_controller:
+/**/mobile_base_controller:
   ros__parameters:
     type: omni_drive_controller/OmniDriveController
     left_front_wheel  : 'wheel_front_left_joint'

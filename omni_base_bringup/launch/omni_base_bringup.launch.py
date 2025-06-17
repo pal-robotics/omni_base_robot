@@ -30,6 +30,7 @@ class LaunchArguments(LaunchArgumentsBase):
     camera_model: DeclareLaunchArgument = OmniBaseArgs.camera_model
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
+    namespace: DeclareLaunchArgument = CommonArgs.namespace
 
 
 def generate_launch_description():
@@ -55,6 +56,7 @@ def declare_actions(
         launch_arguments={
             'use_sim_time': launch_args.use_sim_time,
             'is_public_sim': launch_args.is_public_sim,
+            'namespace': launch_args.namespace,
         }
     )
 
@@ -65,6 +67,7 @@ def declare_actions(
         paths=['launch', 'twist_mux.launch.py'],
         launch_arguments={
             'use_sim_time': launch_args.use_sim_time,
+            'namespace': launch_args.namespace,
         },
     )
 
@@ -80,6 +83,7 @@ def declare_actions(
             'camera_model': launch_args.camera_model,
             'use_sim_time': launch_args.use_sim_time,
             'is_public_sim': launch_args.is_public_sim,
+            'namespace': launch_args.namespace,
         },
     )
 

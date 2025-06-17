@@ -41,6 +41,7 @@
     <gazebo>   
       <plugin name="gazebo_ros_planar_move" filename="libgazebo_ros_planar_move.so">
         <ros>
+          <namespace>${namespace}</namespace>
           <remapping>cmd_vel:=mobile_base_controller/cmd_vel_unstamped</remapping>
           <remapping>odom:=mobile_base_controller/odom</remapping>
         </ros>
@@ -53,9 +54,6 @@
         <xacro:unless value="${is_public_sim}">
           <publish_odom_tf>false</publish_odom_tf>
         </xacro:unless>
-          <xacro:if value="${is_multiple}">
-            <namespace>/${nsp}</namespace>
-          </xacro:if>
         <odometry_frame>odom</odometry_frame>
         <robot_base_frame>base_footprint</robot_base_frame>
         <covariance_x>0.0001</covariance_x>

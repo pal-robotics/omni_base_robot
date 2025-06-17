@@ -19,10 +19,11 @@ from ament_index_python.packages import get_package_share_directory
 from controller_manager.launch_utils import generate_load_controller_launch_description
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, GroupAction
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import PythonExpression
 from launch.actions import ExecuteProcess
+from launch_ros.actions import PushRosNamespace
 from launch_pal.robot_arguments import CommonArgs
 from launch_pal.arg_utils import LaunchArgumentsBase
 
@@ -31,6 +32,7 @@ from launch_pal.arg_utils import LaunchArgumentsBase
 class LaunchArguments(LaunchArgumentsBase):
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
+    namespace: DeclareLaunchArgument = CommonArgs.namespace
 
 
 def generate_launch_description():
@@ -55,8 +57,13 @@ def declare_actions(
     twist_relay = ExecuteProcess(
         cmd=[
             'ros2', 'run', 'topic_tools', 'relay_field',
-            '/mobile_base_controller/cmd_vel',
-            '/mobile_base_controller/cmd_vel_unstamped',
+            # prepend namespace to each topic:
+            PathJoinSubstitution([
+                LaunchConfiguration('namespace'), 'mobile_base_controller', 'cmd_vel'
+            ]),
+            PathJoinSubstitution([
+                LaunchConfiguration('namespace'), 'mobile_base_controller', 'cmd_vel_unstamped'
+            ]),
             'geometry_msgs/Twist',
             '{linear: m.twist.linear, angular: m.twist.angular}'
         ],
@@ -74,12 +81,12 @@ def declare_actions(
             )
         )
     )
-
     launch_description.add_action(twist_relay)
 
     # Base controller
     base_controller = GroupAction(
         [
+            PushRosNamespace(LaunchConfiguration('namespace')),
             generate_load_controller_launch_description(
                 controller_name='mobile_base_controller',
                 controller_params_file=os.path.join(
