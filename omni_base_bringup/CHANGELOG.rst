@@ -2,8 +2,8 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.13.0 (2025-07-09)
+-------------------
 * Add diagnostic analyzers
 * Contributors: Noel Jimenez
 
