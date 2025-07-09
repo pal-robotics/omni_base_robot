@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.13.1 (2025-07-09)
+-------------------
 * fix use_sim_time
 * Contributors: andreacapodacqua
 
