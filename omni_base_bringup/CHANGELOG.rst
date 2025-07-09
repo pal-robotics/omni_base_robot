@@ -2,6 +2,11 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add diagnostic analyzers
+* Contributors: Noel Jimenez
+
 2.12.0 (2025-06-17)
 -------------------
 * configure joystick_relay with namespaces
