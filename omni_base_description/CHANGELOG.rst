@@ -2,6 +2,18 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'tpe/update_wheel_max_vel' into 'humble-devel'
+  Increase Wheel max velocity
+  See merge request robots/omni_base_robot!75
+* Remove params from ros2control
+* increase max an min vel
+* move comment due to bug
+* remove radius
+* Increase Wheel max velocity
+* Contributors: thomas.peyrucain, thomaspeyrucain
+
 2.13.1 (2025-07-09)
 -------------------
 * fix use_sim_time
