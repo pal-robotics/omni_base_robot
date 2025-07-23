@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.13.2 (2025-07-23)
+-------------------
 * Merge branch 'tpe/update_wheel_max_vel' into 'humble-devel'
   Increase Wheel max velocity
   See merge request robots/omni_base_robot!75
