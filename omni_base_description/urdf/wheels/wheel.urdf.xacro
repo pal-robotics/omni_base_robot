@@ -93,7 +93,7 @@
       <parent link="suspension_${side}_link" />
       <child link="wheel_${side}_link" />
       <axis xyz="0 0 1" />
-      <limit effort="${torque}" velocity="${velocity / radius}"/>
+      <limit effort="${torque}" velocity="${velocity}"/>
       <dynamics damping="1.0" friction="2.0"/>
     </joint>
 

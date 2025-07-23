@@ -25,7 +25,8 @@
   <xacro:property name="wheel_separation" value="0.44715"/>
   <xacro:property name="wheel_pair_separation" value="0.488"/>
   <xacro:property name="wheel_torque"     value="6.0"/>
-  <xacro:property name="wheel_velocity"   value="1.0"/>
+  <!-- TODO Compute real wheel max velocity -->
+  <xacro:property name="wheel_velocity"   value="100.0"/>
   <xacro:property name="suspension_sagital_separation" value="0.345"/>
 
   <!-- INCLUDES -->
