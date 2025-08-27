@@ -46,13 +46,12 @@
 
   <xacro:if value="${camera_model == 'realsense-d435'}">
     <!-- INCLUDES -->
-    <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+    <xacro:include filename="$(find pal_urdf_utils)/camera/realsense_d435.urdf.xacro" />
 
     <!-- RGBD base -->
-    <xacro:sensor_d435
+    <xacro:realsense_d435
       name="base_rgbd_camera" 
       parent="base_link"
-      topics_ns="base_rgbd_camera"
       use_nominal_extrinsics="${use_sim_time}">
       <origin 
           xyz="${base_rgbd_x}
@@ -61,13 +60,12 @@
           rpy="${base_rgbd_R * deg_to_rad}
               ${base_rgbd_P * deg_to_rad}
               ${base_rgbd_Y * deg_to_rad}"/>
-    </xacro:sensor_d435>
+    </xacro:realsense_d435>
 
     <!-- RGBD roof -->
-    <xacro:sensor_d435
+    <xacro:realsense_d435
       name="roof_rgbd_camera"
       parent="base_link"
-      topics_ns="roof_rgbd_camera"
       use_nominal_extrinsics="${use_sim_time}">
       <origin
           xyz="${roof_rgbd_x}
@@ -76,18 +74,17 @@
           rpy="${roof_rgbd_R * deg_to_rad}
               ${roof_rgbd_P * deg_to_rad}
               ${roof_rgbd_Y * deg_to_rad}"/>
-    </xacro:sensor_d435>
+    </xacro:realsense_d435>
   </xacro:if>
 
   <xacro:if value="${camera_model == 'realsense-d435i'}">
     <!-- INCLUDES -->
-    <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro" />
+    <xacro:include filename="$(find pal_urdf_utils)/camera/realsense_d435i.urdf.xacro" />
 
     <!-- RGBD base -->
-    <xacro:sensor_d435i
+    <xacro:realsense_d435i
       name="base_rgbd_camera" 
       parent="base_link"
-      topics_ns="base_rgbd_camera"
       use_nominal_extrinsics="${use_sim_time}">
       <origin 
           xyz="${base_rgbd_x}
@@ -96,13 +93,12 @@
           rpy="${base_rgbd_R * deg_to_rad}
               ${base_rgbd_P * deg_to_rad}
               ${base_rgbd_Y * deg_to_rad}"/>
-    </xacro:sensor_d435i>
+    </xacro:realsense_d435i>
 
     <!-- RGBD roof -->
-    <xacro:sensor_d435i
+    <xacro:realsense_d435i
       name="roof_rgbd_camera"
       parent="base_link"
-      topics_ns="roof_rgbd_camera"
       use_nominal_extrinsics="${use_sim_time}">
       <origin
           xyz="${roof_rgbd_x}
@@ -111,7 +107,7 @@
           rpy="${roof_rgbd_R * deg_to_rad}
               ${roof_rgbd_P * deg_to_rad}
               ${roof_rgbd_Y * deg_to_rad}"/>
-    </xacro:sensor_d435i>
+    </xacro:realsense_d435i>
   </xacro:if>
 
 </robot>
