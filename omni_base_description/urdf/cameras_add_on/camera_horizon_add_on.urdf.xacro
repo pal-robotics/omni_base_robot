@@ -58,7 +58,7 @@
     </xacro:macro>
 
     <xacro:if value="${camera_model == 'realsense-d435'}">
-      <xacro:include filename="$(find pal_urdf_utils)/camera/realsense_d435.urdf.xacro" />
+      <xacro:include filename="$(find pal_urdf_utils)/urdf/camera/realsense_d435.urdf.xacro" />
       <xacro:realsense_d435
         name="rgbd_camera" 
         parent="base_link"
@@ -70,7 +70,7 @@
     </xacro:if>
   
     <xacro:if value="${camera_model == 'realsense-d435i'}">
-      <xacro:include filename="$(find pal_urdf_utils)/camera/realsense_d435i.urdf.xacro" />
+      <xacro:include filename="$(find pal_urdf_utils)/urdf/camera/realsense_d435i.urdf.xacro" />
       <xacro:realsense_d435i
         name="rgbd_camera" 
         parent="base_link"
