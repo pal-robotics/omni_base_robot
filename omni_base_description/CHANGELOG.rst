@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.14.1 (2025-08-28)
+-------------------
 * Update 2 files
   - /omni_base_description/urdf/cameras_add_on/camera_horizon_add_on.urdf.xacro
   - /omni_base_description/urdf/cameras_add_on/cameras.urdf.xacro
