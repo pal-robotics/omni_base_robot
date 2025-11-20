@@ -2,6 +2,11 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* added realsense2_description as exec_depend
+* Contributors: martinaannicelli
+
 2.14.1 (2025-08-28)
 -------------------
 * Update 2 files
