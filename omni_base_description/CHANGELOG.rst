@@ -2,8 +2,8 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.15.0 (2025-12-05)
+-------------------
 * Add gazebo_version xacro argument
 * Contributors: Noel Jimenez
 
