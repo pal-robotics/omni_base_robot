@@ -2,8 +2,8 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.15.1 (2026-01-08)
+-------------------
 * Add "Hardware Components Activity" module dependency
 * Contributors: Noel Jimenez
 
