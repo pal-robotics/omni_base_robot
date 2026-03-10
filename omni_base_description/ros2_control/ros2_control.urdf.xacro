@@ -33,7 +33,7 @@ limitations under the License.
               <remapping>/tf:=tf</remapping>
               <remapping>/tf_static:=tf_static</remapping>
             </ros>
-            <parameters>$(find stockbot_description)/ros2_control/gazebo_controller_manager_cfg.yaml</parameters>
+            <parameters>$(find omni_base_description)/ros2_control/gazebo_controller_manager_cfg.yaml</parameters>
           </plugin>
         </xacro:if>
         <xacro:if value="${gazebo_version == 'gazebo'}">
