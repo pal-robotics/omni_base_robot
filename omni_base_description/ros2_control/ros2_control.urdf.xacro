@@ -39,12 +39,6 @@ limitations under the License.
         <xacro:if value="${gazebo_version == 'gazebo'}">
           <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
             <parameters>$(find omni_base_description)/ros2_control/gazebo_controller_manager_cfg.yaml</parameters>
-            <robot_param>robot_description</robot_param>
-            <robot_param_node>robot_state_publisher</robot_param_node>
-            <ros>
-              <remapping>/mecanum_drive_controller/reference:=/cmd_vel</remapping>
-              <remapping>/mecanum_drive_controller/odom:=/odom</remapping>
-            </ros>
           </plugin>
         </xacro:if>
       </gazebo>
