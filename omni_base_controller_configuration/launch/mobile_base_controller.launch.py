@@ -93,7 +93,6 @@ def declare_actions(
                     pkg_share_folder, 'config', 'mobile_base_controller.yaml')
             )
         ],
-        condition=UnlessCondition(LaunchConfiguration('use_sim_time'))
     )
     launch_description.add_action(base_controller)
 
