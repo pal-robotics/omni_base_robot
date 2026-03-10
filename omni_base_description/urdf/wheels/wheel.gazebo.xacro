@@ -58,8 +58,8 @@
                 equivalent to inverse of viscous damping coefficient with units of m/s/N.
                 A slip value of 0 is infinitely viscous. -->
 
-                <mu>0.01</mu>
-                <mu2>0.0</mu2>
+                <mu>1.50</mu>
+                <mu2>0.1</mu2>
                 <xacro:if value="${side == 'front_left'}">
                   <fdir1 gz:expressed_in="base_footprint">1 -1 0</fdir1>
                 </xacro:if>
