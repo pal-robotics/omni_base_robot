@@ -65,12 +65,7 @@ limitations under the License.
 
         <!-- HW interface; robot control-->
         <hardware>
-          <xacro:if value="${gazebo_version == 'classic'}">
-            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-          </xacro:if>
-          <xacro:if value="${gazebo_version == 'gazebo'}">
-            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
-          </xacro:if>
+          <plugin>robot_control/RobotControl</plugin>
         </hardware>
 
       </xacro:unless>
