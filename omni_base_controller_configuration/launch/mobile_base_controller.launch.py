@@ -33,6 +33,7 @@ class LaunchArguments(LaunchArgumentsBase):
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
     namespace: DeclareLaunchArgument = CommonArgs.namespace
+    gazebo_version: DeclareLaunchArgument = CommonArgs.gazebo_version
 
 
 def generate_launch_description():
@@ -83,9 +84,6 @@ def declare_actions(
     )
     launch_description.add_action(twist_relay)
 
-    # TODO: Handle the cases for loading controller between differetn gazebo versions
-    # and loading controllers between public and private simulation
-
     # Base controller
     base_controller = GroupAction(
         [
@@ -96,7 +94,17 @@ def declare_actions(
                     pkg_share_folder, 'config', 'mobile_base_controller.yaml')
             )
         ],
-        condition=UnlessCondition(LaunchConfiguration('use_sim_time')),
+        condition=IfCondition(
+            PythonExpression(
+                [
+                    "'",
+                    LaunchConfiguration('is_public_sim'),
+                    "' != 'True' and '",
+                    LaunchConfiguration('gazebo_version'),
+                    "' != 'classic'",
+                ]
+            )
+        )
     )
     launch_description.add_action(base_controller)
 

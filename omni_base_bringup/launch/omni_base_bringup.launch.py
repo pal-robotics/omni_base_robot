@@ -58,6 +58,7 @@ def declare_actions(
             'use_sim_time': launch_args.use_sim_time,
             'is_public_sim': launch_args.is_public_sim,
             'namespace': launch_args.namespace,
+            'gazebo_version': launch_args.gazebo_version,
         }
     )
 
