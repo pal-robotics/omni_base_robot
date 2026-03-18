@@ -20,7 +20,7 @@ from controller_manager.launch_utils import generate_load_controller_launch_desc
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, GroupAction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
-from launch.conditions import IfCondition
+from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import PythonExpression
 from launch.actions import ExecuteProcess
 from launch_ros.actions import PushRosNamespace
@@ -83,6 +83,9 @@ def declare_actions(
     )
     launch_description.add_action(twist_relay)
 
+    # TODO: Handle the cases for loading controller between differetn gazebo versions
+    # and loading controllers between public and private simulation
+
     # Base controller
     base_controller = GroupAction(
         [
@@ -93,6 +96,7 @@ def declare_actions(
                     pkg_share_folder, 'config', 'mobile_base_controller.yaml')
             )
         ],
+        condition=UnlessCondition(LaunchConfiguration('use_sim_time')),
     )
     launch_description.add_action(base_controller)
 
