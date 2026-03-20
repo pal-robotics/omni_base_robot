@@ -38,7 +38,8 @@
     </gazebo>
 
     <!-- Odometry plugin for ground truth -->
-    <gazebo>   
+  <xacro:if value="${gazebo_version == 'classic'}">
+    <gazebo>
       <plugin name="gazebo_ros_planar_move" filename="libgazebo_ros_planar_move.so">
         <ros>
           <namespace>${namespace}</namespace>
@@ -61,6 +62,7 @@
         <covariance_yaw>0.01</covariance_yaw>
       </plugin>
     </gazebo>
+  </xacro:if>
 
   </xacro:macro>
 

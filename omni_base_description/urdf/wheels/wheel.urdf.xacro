@@ -35,10 +35,10 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <xacro:if value="${frontal_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/suspension_front_link.stl" scale="1 ${sagital_reflect} 1"/>
+            <mesh filename="package://omni_base_description/meshes/wheels/suspension_front_link.stl" scale="1 1 1"/>
           </xacro:if>
           <xacro:unless value="${frontal_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/suspension_rear_link.stl" scale="1 ${sagital_reflect} 1"/>
+            <mesh filename="package://omni_base_description/meshes/wheels/suspension_rear_link.stl" scale="1 1 1"/>
           </xacro:unless>
         </geometry>
         <material name="">
@@ -49,10 +49,10 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <xacro:if value="${frontal_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/suspension_front_link.stl" scale="1 ${sagital_reflect} 1"/>
+            <mesh filename="package://omni_base_description/meshes/wheels/suspension_front_link.stl" scale="1 1 1"/>
           </xacro:if>
           <xacro:unless value="${frontal_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/suspension_rear_link.stl" scale="1 ${sagital_reflect} 1"/>
+            <mesh filename="package://omni_base_description/meshes/wheels/suspension_rear_link.stl" scale="1 1 1"/>
           </xacro:unless>
         </geometry>
       </collision>
@@ -77,7 +77,12 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://omni_base_description/meshes/wheels/wheel_link.stl" scale="1 1 ${sagital_reflect}"/>
+          <xacro:if value="${sagital_reflect == 1}">
+            <mesh filename="package://omni_base_description/meshes/wheels/wheel_link.stl" scale="1 1 1"/>
+          </xacro:if>
+          <xacro:unless value="${sagital_reflect == 1}">
+            <mesh filename="package://omni_base_description/meshes/wheels/wheel_link_reverted.stl" scale="1 1 1"/>
+          </xacro:unless>
         </geometry>
         <material name="DarkGrey"/>
       </visual>

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!--
   Copyright (c) 2023 PAL Robotics S.L. All rights reserved.
 
@@ -13,22 +14,84 @@
   See the License for the specific language governing permissions and
   limitations under the License.
  -->
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" xmlns:gz="http://gazebosim.org/schema">
 
   <!-- MACRO DEFINITION -->
   <xacro:macro name="wheel_gazebo" params="side">
     <!-- Contact model for the wheel surface -->
-    <gazebo reference="wheel_${side}_link">
-      <kp>1000000.0</kp>
-      <kd>1000.0</kd>
-      <mu1>0.0</mu1>
-      <mu2>0.0</mu2>
-      <fdir1>1 0 0</fdir1>
-      <maxVel>1.0</maxVel>
-      <minDepth>0.00</minDepth>
-      <implicitSpringDamper>1</implicitSpringDamper>
-      <material>Gazebo/Grey</material>
-    </gazebo>
+
+    <xacro:if value="${gazebo_version == 'classic'}">
+      <gazebo reference="wheel_${side}_link">
+        <kp>1000000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+        <fdir1>1 0 0</fdir1>
+        <maxVel>1.0</maxVel>
+        <minDepth>0.00</minDepth>
+        <implicitSpringDamper>1</implicitSpringDamper>
+        <material>Gazebo/Grey</material>
+      </gazebo>
+    </xacro:if>
+
+    <xacro:if value="${gazebo_version == 'gazebo'}">
+      <gazebo reference="wheel_${side}_link">
+      <collision>
+          <surface>
+            <friction>
+              <ode>
+                <!-- <mu> : Coefficient of friction in first friction pyramid direction, 
+                the unitless maximum ratio of force in first friction pyramid direction to normal force. -->
+                <!-- <mu2> : Coefficient of friction in second friction pyramid direction, 
+                the unitless maximum ratio of force in second friction pyramid direction to normal force. -->
+                <!-- <fdir1> : Unit vector specifying first friction pyramid direction in 
+                collision-fixed reference frame. If the friction pyramid model is in use, and this value
+                is set to a unit vector for one of the colliding surfaces, the ODE Collide callback 
+                function will align the friction pyramid directions with a reference frame fixed to that 
+                collision surface. If both surfaces have this value set to a vector of zeros, the friction 
+                pyramid directions will be aligned with the world frame. If this value is set for both 
+                surfaces, the behavior is undefined. -->
+                <!-- <slip1> : Force dependent slip in first friction pyramid direction, 
+                equivalent to inverse of viscous damping coefficient with units of m/s/N.
+                A slip value of 0 is infinitely viscous. -->
+                <!-- <slip2> : Force dependent slip in second friction pyramid direction, 
+                equivalent to inverse of viscous damping coefficient with units of m/s/N.
+                A slip value of 0 is infinitely viscous. -->
+
+                <mu>0.80</mu>
+                <mu2>0.30</mu2>
+                <xacro:if value="${side == 'front_left'}">
+                  <fdir1 gz:expressed_in="base_footprint">1 -1 0</fdir1>
+                </xacro:if>
+                <xacro:if value="${side == 'rear_left'}">
+                  <fdir1 gz:expressed_in="base_footprint">1 1 0</fdir1>
+                </xacro:if>
+                <xacro:if value="${side == 'front_right'}">
+                  <fdir1 gz:expressed_in="base_footprint">1 1 0</fdir1>
+                </xacro:if>
+                <xacro:if value="${side == 'rear_right'}">
+                  <fdir1 gz:expressed_in="base_footprint">1 -1 0</fdir1>
+                </xacro:if>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <!-- <kp> : dynamically "stiffness"-equivalent coefficient for contact joints. -->
+                <!-- <kd> : dynamically "damping"-equivalent coefficient for contact joints. -->
+                <!-- <max_vel> : maximum contact correction velocity truncation term. -->
+                <!-- <min_depth> : minimum allowable depth before contact correction impulse is applied. -->
+
+                <kp>10.0</kp>
+                <kd>10.0</kd>
+                <max_vel>1.0</max_vel>
+                <min_depth>0.0</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <material>Gazebo/Grey</material>
+      </gazebo>
+    </xacro:if>
   </xacro:macro>
 
 </robot>

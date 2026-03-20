@@ -20,7 +20,7 @@ from controller_manager.launch_utils import generate_load_controller_launch_desc
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, GroupAction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
-from launch.conditions import IfCondition, UnlessCondition
+from launch.conditions import IfCondition
 from launch.substitutions import PythonExpression
 from launch.actions import ExecuteProcess
 from launch_ros.actions import PushRosNamespace
@@ -33,6 +33,7 @@ class LaunchArguments(LaunchArgumentsBase):
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
     namespace: DeclareLaunchArgument = CommonArgs.namespace
+    gazebo_version: DeclareLaunchArgument = CommonArgs.gazebo_version
 
 
 def generate_launch_description():
@@ -93,7 +94,17 @@ def declare_actions(
                     pkg_share_folder, 'config', 'mobile_base_controller.yaml')
             )
         ],
-        condition=UnlessCondition(LaunchConfiguration('use_sim_time'))
+        condition=IfCondition(
+            PythonExpression(
+                [
+                    "'",
+                    LaunchConfiguration('is_public_sim'),
+                    "' != 'True' and '",
+                    LaunchConfiguration('gazebo_version'),
+                    "' != 'classic'",
+                ]
+            )
+        )
     )
     launch_description.add_action(base_controller)
 
