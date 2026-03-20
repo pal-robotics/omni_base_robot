@@ -2,6 +2,12 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* load controller only for gazebo version in pal environments
+* add gazebo versioning parameters
+* Contributors: thomasung
+
 2.15.1 (2026-01-08)
 -------------------
 

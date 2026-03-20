@@ -2,6 +2,15 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Remove unused import UnlessCondition
+* load controller only for gazebo version in pal environments
+* add back the condition to not load gz control for the simulation
+* fix linting
+* remove condition to not start ros2 control in simulation
+* Contributors: Noel Jimenez, thomasung
+
 2.15.1 (2026-01-08)
 -------------------
 * Add "Hardware Components Activity" module dependency

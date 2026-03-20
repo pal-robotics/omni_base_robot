@@ -2,6 +2,16 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* adjust mu and mu2 parameters
+* use robot control plugin when using the real robot
+* add mu values that work
+* just load the ros2 control config file
+* remove mecanum wheel controller
+* add gazebo versioning parameters
+* Contributors: thomasung
+
 2.15.1 (2026-01-08)
 -------------------
 
