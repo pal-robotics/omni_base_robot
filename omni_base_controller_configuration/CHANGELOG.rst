@@ -2,8 +2,8 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.16.0 (2026-03-20)
+-------------------
 * Remove unused import UnlessCondition
 * load controller only for gazebo version in pal environments
 * add back the condition to not load gz control for the simulation
