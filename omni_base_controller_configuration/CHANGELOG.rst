@@ -2,6 +2,11 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fix controller not loading on the robot
+* Contributors: thomasung
+
 2.16.0 (2026-03-20)
 -------------------
 * Remove unused import UnlessCondition
