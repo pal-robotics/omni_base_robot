@@ -37,7 +37,6 @@ class LaunchArguments(LaunchArgumentsBase):
 
 
 def generate_launch_description():
-
     # Create the launch description and populate
     ld = LaunchDescription()
     launch_arguments = LaunchArguments()
@@ -98,13 +97,13 @@ def declare_actions(
             PythonExpression(
                 [
                     "'",
-                    LaunchConfiguration('is_public_sim'),
-                    "' != 'True' and '",
+                    LaunchConfiguration('use_sim_time'),
+                    "' != 'True' or '",
                     LaunchConfiguration('gazebo_version'),
                     "' != 'classic'",
                 ]
             )
-        )
+        ),
     )
     launch_description.add_action(base_controller)
 
