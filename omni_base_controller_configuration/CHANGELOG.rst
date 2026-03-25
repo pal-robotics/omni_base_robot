@@ -2,8 +2,8 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.16.1 (2026-03-25)
+-------------------
 * fix controller not loading on the robot
 * Contributors: thomasung
 
