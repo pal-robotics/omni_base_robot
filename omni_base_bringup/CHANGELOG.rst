@@ -2,6 +2,13 @@
 Changelog for package omni_base_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add pal configuration
+* Add compatibility for namespace
+* Switch to pal_joy + Update layout
+* Contributors: thomaspeyrucain
+
 2.16.1 (2026-03-25)
 -------------------
 
