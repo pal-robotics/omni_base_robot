@@ -19,6 +19,7 @@
   <!-- MACRO DEFINITION -->
   <xacro:macro name="antenna" params="name parent *origin reflect:=1">
     <link name="${name}_link">
+      <xacro:property name="suffix" value="${'_reflected' if reflect == -1 else ''}" />
       <inertial>
         <origin xyz="0.027807 ${reflect * -0.0085125} 0.015138" rpy="0 0 0" />
         <mass value="0.02311" />
@@ -28,12 +29,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <xacro:if value="${reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/base/base_antenna_link.stl" scale="1 1 1" />
-          </xacro:if>
-          <xacro:unless value="${reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/base/base_antenna_link_mirror.stl" scale="1 1 1"/>
-          </xacro:unless>
+          <mesh filename="package://omni_base_description/meshes/base/base_antenna_link${suffix}.stl"/>
         </geometry>
         <material name="">
           <color rgba="0.75294 0.75294 0.75294 1" />
@@ -42,16 +38,11 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <xacro:if value="${reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/base/base_antenna_link.stl" scale="1 1 1" />
-          </xacro:if>
-          <xacro:unless value="${reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/base/base_antenna_link_mirror.stl" scale="1 1 1"/>
-          </xacro:unless>
+          <mesh filename="package://omni_base_description/meshes/base/base_antenna_link${suffix}.stl" />
         </geometry>
       </collision>
     </link>
-    
+
     <joint name="${name}_joint" type="fixed">
       <xacro:insert_block name="origin"/>
       <parent link="${parent}" />

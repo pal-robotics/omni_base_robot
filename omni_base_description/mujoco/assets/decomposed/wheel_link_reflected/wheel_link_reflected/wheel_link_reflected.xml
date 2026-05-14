@@ -1,0 +1,23 @@
+<mujoco model="wheel_link_reflected">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="mtl_m8_wheel_link_reflected" specular="0.20000000000000004" shininess="1.0" rgba="0.10196078 0.10196078 0.10196078 1.0"/>
+    <mesh file="wheel_link_reflected.obj"/>
+    <mesh file="wheel_link_reflected_collision_0.obj"/>
+    <mesh file="wheel_link_reflected_collision_1.obj"/>
+  </asset>
+  <worldbody>
+    <body name="wheel_link_reflected">
+      <geom material="mtl_m8_wheel_link_reflected" mesh="wheel_link_reflected" class="visual"/>
+      <geom mesh="wheel_link_reflected_collision_0" rgba="0.17944687872627718 0.020061524997949776 0.46186397623505404 1" class="collision"/>
+      <geom mesh="wheel_link_reflected_collision_1" rgba="0.32911962421732166 0.1455939917755189 0.6989823562562943 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

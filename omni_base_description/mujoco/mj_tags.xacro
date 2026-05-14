@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="omni_base">
+
+    <xacro:macro name="mj_base_actuators" params="mj_control">
+        <xacro:if value="${mj_control == 'position' or mj_control == 'motor'}">
+            <velocity name="wheel_front_right_velocity" joint="wheel_front_right_joint" kv="500" ctrllimited="true" ctrlrange="-100 100"/>
+            <velocity name="wheel_front_left_velocity" joint="wheel_front_left_joint" kv="500" ctrllimited="true" ctrlrange="-100 100"/>
+            <velocity name="wheel_rear_right_velocity" joint="wheel_rear_right_joint" kv="500" ctrllimited="true" ctrlrange="-100 100"/>
+            <velocity name="wheel_rear_left_velocity" joint="wheel_rear_left_joint" kv="500" ctrllimited="true" ctrlrange="-100 100"/>
+
+            <!-- <velocity name="base_x" joint="floating_base_joint" gear="1 0 0 0 0 0" kv="500" ctrllimited="false" ctrlrange="-100 100" />
+            <velocity name="base_y" joint="floating_base_joint" gear="0 1 0 0 0 0" kv="500" ctrllimited="false" ctrlrange="-100 100" />
+            <velocity name="base_tau" joint="floating_base_joint" gear="0 0 0 0 0 1" kv="500" ctrllimited="false" ctrlrange="-500 500" /> -->
+        </xacro:if>
+    </xacro:macro>
+
+</robot>

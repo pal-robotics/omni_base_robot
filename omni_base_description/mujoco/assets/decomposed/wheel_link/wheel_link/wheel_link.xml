@@ -1,0 +1,23 @@
+<mujoco model="wheel_link">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="mtl_m6_wheel_link" specular="0.20000000000000004" shininess="1.0" rgba="0.10196078 0.10196078 0.10196078 1.0"/>
+    <mesh file="wheel_link.obj"/>
+    <mesh file="wheel_link_collision_0.obj"/>
+    <mesh file="wheel_link_collision_1.obj"/>
+  </asset>
+  <worldbody>
+    <body name="wheel_link">
+      <geom material="mtl_m6_wheel_link" mesh="wheel_link" class="visual"/>
+      <geom mesh="wheel_link_collision_0" rgba="0.36369494550756687 0.806714416445938 0.3666636591020419 1" class="collision"/>
+      <geom mesh="wheel_link_collision_1" rgba="0.8602694500305725 0.8352929984221583 0.25349853486741813 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

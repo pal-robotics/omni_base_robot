@@ -39,6 +39,9 @@ class LaunchArguments(LaunchArgumentsBase):
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
     namespace: DeclareLaunchArgument = CommonArgs.namespace
     gazebo_version: DeclareLaunchArgument = CommonArgs.gazebo_version
+    sim_type: DeclareLaunchArgument = CommonArgs.sim_type
+    mj_control: DeclareLaunchArgument = CommonArgs.mj_control
+    world_name: DeclareLaunchArgument = CommonArgs.world_name
 
 
 def generate_launch_description():
@@ -107,6 +110,9 @@ def create_robot_description_param(context, *args, **kwargs):
         'is_public_sim': read_launch_argument('is_public_sim', context),
         'namespace': read_launch_argument('namespace', context),
         'gazebo_version': read_launch_argument('gazebo_version', context),
+        'mj_control': read_launch_argument('mj_control', context),
+        'sim_type': read_launch_argument('sim_type', context),
+        'world_name': read_launch_argument('world_name', context),
     }
     robot_description = load_xacro(xacro_file_path, xacro_input_args)
 

@@ -37,6 +37,14 @@
   <xacro:arg name="is_public_sim" default="false"/>
   <xacro:arg name="gazebo_version" default="classic"/>
 
+  <!-- mujoco-ros2-control, mujoco, gazebo, no-simulation -->
+  <xacro:arg name="sim_type" default="gazebo" />
+
+  <!-- false, position, motor -->
+  <xacro:arg name="mj_control" default="false" />
+
+  <xacro:arg name="world_name" default="floor" />
+
   <!-- PROPERTIES -->
 
   <!-- HW configuration -->
@@ -44,6 +52,19 @@
   <xacro:property name="rear_laser_model" value="$(arg rear_laser_model)" />
   <xacro:property name="add_on_module" value="$(arg add_on_module)"/>
   <xacro:property name="camera_model" value="$(arg camera_model)" />
+
+  <!-- Mujoco properties -->
+  <xacro:property name="sim_type" value="$(arg sim_type)" />
+  <xacro:property name="mj_control" value="$(arg mj_control)"/>
+  <xacro:property name="world_name" value="$(arg world_name)"/>
+
+  <!-- Properties check -->
+  <xacro:if value="${sim_type not in ['mujoco-ros2-control', 'mujoco', 'gazebo']}">
+    <xacro:wrong_sim_type />
+  </xacro:if>
+  <xacro:unless value="$(arg use_sim_time)">
+    <xacro:property name="sim_type" value="gazebo" />
+  </xacro:unless>
 
   <!-- HW configuration check -->
   <xacro:if value="${front_laser_model not in ['no-laser', 'sick-551', 'sick-561', 'sick-571', 'hokuyo']}">
@@ -75,7 +96,7 @@
     <xacro:include filename="$(find omni_base_description)/urdf/cameras_add_on/cameras_add_on.urdf.xacro" />
     <xacro:cameras_add_on name="cameras_add_on" parent="base_link"/>
   </xacro:if>
-  
+
   <xacro:if value="${add_on_module == 'horizon'}">
     <xacro:include filename="$(find omni_base_description)/urdf/cameras_add_on/camera_horizon_add_on.urdf.xacro" />
     <xacro:camera_horizon_add_on name="camera_horizon" parent="base_link"/>
@@ -88,12 +109,18 @@
   <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
 
   <!-- ROS 2 Control -->
-  <xacro:include filename="$(find omni_base_description)/ros2_control/ros2_control.urdf.xacro" />
-  <xacro:omni_base_ros2_control />
+  <xacro:if value="${sim_type != 'mujoco'}">
+    <xacro:include filename="$(find omni_base_description)/ros2_control/ros2_control.urdf.xacro" />
+    <xacro:omni_base_ros2_control sim_type="${sim_type}"/>
+  </xacro:if>
 
   <!-- ROBOT DEFINITION -->
 
   <!-- Now we can start using the macros included above to define the actual robot -->
   <xacro:base_sensors name="base" front_laser_model="$(arg front_laser_model)" rear_laser_model="$(arg rear_laser_model)"/>
+
+  <xacro:if value="${sim_type == 'mujoco' or sim_type == 'mujoco-ros2-control'}">
+    <xacro:base_mj world_name="${world_name}" mj_control="${mj_control}"/>
+  </xacro:if>
 
 </robot>
