@@ -32,6 +32,9 @@ class LaunchArguments(LaunchArgumentsBase):
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
     namespace: DeclareLaunchArgument = CommonArgs.namespace
     gazebo_version: DeclareLaunchArgument = CommonArgs.gazebo_version
+    sim_type: DeclareLaunchArgument = CommonArgs.sim_type
+    mj_control: DeclareLaunchArgument = CommonArgs.mj_control
+    world_name: DeclareLaunchArgument = CommonArgs.world_name
 
 
 def generate_launch_description():
@@ -87,6 +90,9 @@ def declare_actions(
             'is_public_sim': launch_args.is_public_sim,
             'namespace': launch_args.namespace,
             'gazebo_version': launch_args.gazebo_version,
+            'sim_type': launch_args.sim_type,
+            'mj_control': launch_args.mj_control,
+            'world_name': launch_args.world_name,
         },
     )
 

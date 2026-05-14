@@ -21,27 +21,29 @@ limitations under the License.
   <xacro:include filename="$(find omni_base_description)/urdf/wheels/wheel.ros2_control.xacro"/>
 
   <!-- MACRO DEFINITION-->
-  <xacro:macro name="omni_base_ros2_control">
+  <xacro:macro name="omni_base_ros2_control" params="use_sim_time:=^|false sim_type:=^|gazebo">
 
     <!-- Init the ROS 2 control gazebo interface -->
     <xacro:if value="${use_sim_time}">
-      <gazebo>
-        <xacro:if value="${gazebo_version == 'classic'}">
-          <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-            <ros>
-              <namespace>${namespace}</namespace>
-              <remapping>/tf:=tf</remapping>
-              <remapping>/tf_static:=tf_static</remapping>
-            </ros>
-            <parameters>$(find omni_base_description)/ros2_control/gazebo_controller_manager_cfg.yaml</parameters>
-          </plugin>
-        </xacro:if>
-        <xacro:if value="${gazebo_version == 'gazebo'}">
-          <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-            <parameters>$(find omni_base_description)/ros2_control/gazebo_controller_manager_cfg.yaml</parameters>
-          </plugin>
-        </xacro:if>
-      </gazebo>
+      <xacro:if value="${sim_type == 'gazebo'}">
+        <gazebo>
+          <xacro:if value="${gazebo_version == 'classic'}">
+            <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+              <ros>
+                <namespace>${namespace}</namespace>
+                <remapping>/tf:=tf</remapping>
+                <remapping>/tf_static:=tf_static</remapping>
+              </ros>
+              <parameters>$(find omni_base_description)/ros2_control/gazebo_controller_manager_cfg.yaml</parameters>
+            </plugin>
+          </xacro:if>
+          <xacro:if value="${gazebo_version == 'gazebo'}">
+            <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+              <parameters>$(find omni_base_description)/ros2_control/gazebo_controller_manager_cfg.yaml</parameters>
+            </plugin>
+          </xacro:if>
+        </gazebo>
+      </xacro:if>
     </xacro:if>
 
     <!-- ROS 2 control config-->
@@ -52,11 +54,19 @@ limitations under the License.
 
         <!-- HW interface; gazebo-->
         <hardware>
-          <xacro:if value="${gazebo_version == 'classic'}">
-            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+          <xacro:if value="${sim_type == 'mujoco-ros2-control'}">
+            <plugin>mujoco_ros2_control/MujocoSystemInterface</plugin>
+            <!-- Override the slowdown settings in the Simulate App and run at 3x speed -->
+            <param name="sim_speed_factor">1.0</param>
+            <!-- <param name="pids_config_file">$(find omni_base_mujoco)/config/pids.yaml</param> -->
           </xacro:if>
-          <xacro:if value="${gazebo_version == 'gazebo'}">
-            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+          <xacro:if value="${sim_type == 'gazebo'}">
+            <xacro:if value="${gazebo_version == 'classic'}">
+              <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+            </xacro:if>
+            <xacro:if value="${gazebo_version == 'gazebo'}">
+              <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+            </xacro:if>
           </xacro:if>
         </hardware>
 
@@ -71,10 +81,10 @@ limitations under the License.
       </xacro:unless>
 
       <!-- wheels -->
-      <xacro:ros2_control_wheel side="front_right" />
-      <xacro:ros2_control_wheel side="front_left" />
-      <xacro:ros2_control_wheel side="rear_right" />
-      <xacro:ros2_control_wheel side="rear_left" />
+      <xacro:ros2_control_wheel side="front_right" sim_type="${sim_type}"/>
+      <xacro:ros2_control_wheel side="front_left" sim_type="${sim_type}"/>
+      <xacro:ros2_control_wheel side="rear_right" sim_type="${sim_type}"/>
+      <xacro:ros2_control_wheel side="rear_left" sim_type="${sim_type}"/>
 
     </ros2_control>
 

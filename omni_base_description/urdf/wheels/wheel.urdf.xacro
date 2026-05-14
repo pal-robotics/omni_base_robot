@@ -25,6 +25,7 @@
   <xacro:macro name="wheel" params="side parent sagital_reflect frontal_reflect radius width torque velocity sagital_separation frontal_separation">
 
     <link name="suspension_${side}_link">
+      <xacro:property name="suffix" value="${'_reflected' if sagital_reflect == -1 else ''}" />
       <inertial>
         <origin xyz="-0.058182 ${frontal_reflect * sagital_reflect * -0.0043908} -0.0057695" rpy="0 0 0" />
         <mass value="1.2879" />
@@ -35,10 +36,10 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <xacro:if value="${frontal_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/suspension_front_link.stl" scale="1 1 1"/>
+            <mesh filename="package://omni_base_description/meshes/wheels/suspension_front_link${suffix}.stl"/>
           </xacro:if>
           <xacro:unless value="${frontal_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/suspension_rear_link.stl" scale="1 1 1"/>
+            <mesh filename="package://omni_base_description/meshes/wheels/suspension_rear_link${suffix}.stl"/>
           </xacro:unless>
         </geometry>
         <material name="">
@@ -49,10 +50,10 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <xacro:if value="${frontal_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/suspension_front_link.stl" scale="1 1 1"/>
+            <mesh filename="package://omni_base_description/meshes/wheels/suspension_front_link${suffix}.stl"/>
           </xacro:if>
           <xacro:unless value="${frontal_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/suspension_rear_link.stl" scale="1 1 1"/>
+            <mesh filename="package://omni_base_description/meshes/wheels/suspension_rear_link${suffix}.stl"/>
           </xacro:unless>
         </geometry>
       </collision>
@@ -68,6 +69,7 @@
     </joint>
 
     <link name="wheel_${side}_link">
+      <xacro:property name="suffix" value="${'_reflected' if sagital_reflect == -1 else ''}" />
       <inertial>
         <origin xyz="${frontal_reflect * 5.4922E-09} ${frontal_reflect * sagital_reflect * 6.9775E-05} ${sagital_reflect * 0.011144}" rpy="0 0 0" />
         <mass value="0.70767" />
@@ -77,12 +79,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <xacro:if value="${sagital_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/wheel_link.stl" scale="1 1 1"/>
-          </xacro:if>
-          <xacro:unless value="${sagital_reflect == 1}">
-            <mesh filename="package://omni_base_description/meshes/wheels/wheel_link_reverted.stl" scale="1 1 1"/>
-          </xacro:unless>
+          <mesh filename="package://omni_base_description/meshes/wheels/wheel_link${suffix}.stl"/>
         </geometry>
         <material name="DarkGrey"/>
       </visual>

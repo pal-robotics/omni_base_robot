@@ -32,4 +32,4 @@ endif()
 # Install Python modules
 ament_python_install_package(${PROJECT_NAME})
 
-ament_auto_package(INSTALL_TO_SHARE rviz launch meshes config robots ros2_control urdf)
+ament_auto_package(INSTALL_TO_SHARE rviz launch meshes config robots mujoco ros2_control urdf)

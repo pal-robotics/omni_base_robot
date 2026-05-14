@@ -133,4 +133,55 @@
 
   </xacro:macro>
 
+  <xacro:macro name="base_mj" params="mj_control world_name">
+    <xacro:include filename="$(find omni_base_description)/mujoco/mj_tags.xacro" />
+    <xacro:include filename="$(find pal_mujoco_scenes)/scenes/${world_name}.xacro" />
+
+    <mujoco_inputs>
+      <!-- Mujoco environment -->
+      <scene>
+        <xacro:mj_scene/>
+      </scene>
+
+      <raw_inputs>
+        <!-- Actuator-->
+          <actuator>
+            <xacro:mj_base_actuators mj_control="${mj_control}"/>
+          </actuator>
+
+          <default>
+            <default class="visual">
+              <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+            </default>
+            <default class="collision">
+              <geom group="3" type="mesh"/>
+            </default>
+          </default>
+      </raw_inputs>
+
+      <processed_inputs>
+        <!-- Specifying decompose_mesh will set the `decompose` flag when using obj2mjcf -->
+        <decompose_mesh mesh_name="wheel_link" threshold="0.5"/>
+        <decompose_mesh mesh_name="wheel_link_reflected" threshold="0.5"/>
+
+        <!-- The camera with the specified values will be added at the specified site name. -->
+        <!-- The position and quaterinion will be filled in by the converter -->
+        <!-- <camera site="{site_name}" name="{camera_name}" fovy="{fovy_value}" mode="{mode_type}" resolution="{resolution values}"/> -->
+
+        <!-- Adds a lidar tag below a site tag to support a lidar sensor. -->
+        <!-- In the URDF, we assume that that the sensor frame has the Z-axis pointed directly up in the sensor -->
+        <!-- frame. This tag will create rangefinders in the MJCF between min_angle and max_angle at each -->
+        <!-- angle_increment rotated about the replicate frame's Y axis. The hardware intercface then combines -->
+        <!-- them into a single LaserScan message. -->
+        <!-- <lidar ref_site="{link_name}" sensor_name="{sensor_name}" min_angle="{min_angle_value}" max_angle="{max_angle_value}" angle_increment="{angle_increment_value}" /> -->
+
+        <!-- The element with the type and name as listed below will be modified with the remaining attributes -->
+        <!-- If the attribute already existed, it will be overwritten -->
+        <!-- Note that the type and name elements are required -->
+        <!-- <modify_element type="{element_type}" name="{element_name}" frictionloss="{value}" damping="{value}"/> -->
+      </processed_inputs>
+
+    </mujoco_inputs>
+  </xacro:macro>
+
 </robot>
