@@ -2,6 +2,14 @@
 Changelog for package omni_base_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'opo/add-new-mesh' into 'humble-devel'
+  Support Mujoco
+  See merge request robots/omni_base_robot!88
+* Support Mujoco
+* Contributors: antoniobrandi, ortisapoci
+
 2.17.0 (2026-04-20)
 -------------------
 
