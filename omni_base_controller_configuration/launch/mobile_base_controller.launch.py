@@ -22,8 +22,7 @@ from launch.actions import DeclareLaunchArgument, GroupAction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch.conditions import IfCondition
 from launch.substitutions import PythonExpression
-from launch.actions import ExecuteProcess
-from launch_ros.actions import PushRosNamespace
+from launch_ros.actions import Node, PushRosNamespace
 from launch_pal.robot_arguments import CommonArgs
 from launch_pal.arg_utils import LaunchArgumentsBase
 
@@ -54,9 +53,10 @@ def declare_actions(
     pkg_share_folder = get_package_share_directory('omni_base_controller_configuration')
 
     # Temporary Fix when using rolling version of ros2 control
-    twist_relay = ExecuteProcess(
-        cmd=[
-            'ros2', 'run', 'topic_tools', 'relay_field',
+    twist_relay = Node(
+        package='topic_tools',
+        executable='relay_field',
+        arguments=[
             # prepend namespace to each topic:
             PathJoinSubstitution([
                 LaunchConfiguration('namespace'), 'mobile_base_controller', 'cmd_vel'
