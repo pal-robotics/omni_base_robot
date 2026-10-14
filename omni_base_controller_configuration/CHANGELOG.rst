@@ -2,6 +2,11 @@
 Changelog for package omni_base_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Revert back to Node action for relay_field
+* Contributors: Mathias Lüdtke
+
 2.18.0 (2026-07-24)
 -------------------
 
